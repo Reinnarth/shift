@@ -4,6 +4,8 @@ import Menu from "./Menu";
 import Category from "./Category";
 import * as routes from "./Routes/constants";
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 function App() {
   return (
     <>
