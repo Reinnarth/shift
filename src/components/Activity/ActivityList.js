@@ -5,9 +5,9 @@ import image1 from '../../assets/GirlSpa.png'
 
 
 export default function ActivityList(props) {
- 
 
-console.log(props.children) //сюда передаем подраздел для формирования списка
+
+console.log(props) //сюда передаем подраздел для формирования списка
   return (
     <Media as="li">
     <img

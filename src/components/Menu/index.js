@@ -3,89 +3,71 @@ import { Link, withRouter } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import * as routes from "../Routes/constants";
-import pictureGym from "../../assets/GymMenu.jpg"
-import picturePool from "../../assets/PoolMenu.jpeg"
-import pictureSpa from "../../assets/SpaMenu.jpg"
-import pictureBar from "../../assets/BarMenu.jpg"
+import pictureGym from "../../assets/Menu/GymMenu.jpg";
+import picturePool from "../../assets/Menu/PoolMenu.jpeg";
+import pictureSpa from "../../assets/Menu/SpaMenu.jpg";
+import pictureLounge from "../../assets/Menu/LoungeMenu.jpg";
 
 class Menu extends Component {
   render() {
+    const cardList = cards.map(card => {
+      return (
+        <Col  xs={12} md={3}>
+          <Link to={card.route}>
+            <Card className="bg-dark text-white" >
+              <Card.Img
+                width={400}
+                height={600}
+                src={card.img}
+                alt="Бронирование услуг фитнесс-зоны"
+              />
+              <Card.ImgOverlay>
+                <Card.Title>{card.title}</Card.Title>
+                <Card.Text>{card.text}</Card.Text>
+              </Card.ImgOverlay>
+            </Card>
+          </Link>
+        </Col>
+      );
+    });
     return (
       <>
-      
         <Container>
-          <Row>
-            <Col xs={12} md={3}>
-              <Link to={routes.gym}>
-                <Card className="bg-dark text-white">
-                  <Card.Img width={400} height={600} src={pictureGym} alt="Броинрование услуг фитнесс-зоны" />
-                  <Card.ImgOverlay>
-                    <Card.Title>Броинрование услуг фитнесс-зоны</Card.Title>
-                    <Card.Text>
-                      This is a wider card with supporting text below as a
-                      natural lead-in to additional content. This content is a
-                      little bit longer.
-                    </Card.Text>
-                    <Card.Text>Last updated 3 mins ago</Card.Text>
-                  </Card.ImgOverlay>
-                </Card>
-              </Link>
-            </Col>
-            
-            <Col xs={12} md={3}>
-              <Link to={routes.pool}>
-                <Card className="bg-dark text-white">
-                  <Card.Img width={400} height={600} src={picturePool} alt="Бронирование услуг бассейна" />
-                  <Card.ImgOverlay>
-                    <Card.Title>Бронирование услуг бассейна</Card.Title>
-                    <Card.Text>
-                      This is a wider card with supporting text below as a
-                      natural lead-in to additional content. This content is a
-                      little bit longer.
-                    </Card.Text>
-                    <Card.Text>Last updated 3 mins ago</Card.Text>
-                  </Card.ImgOverlay>
-                </Card>
-              </Link>
-            </Col>
-            
-            <Col xs={12} md={3}>
-            <Link to={routes.spa}>
-                <Card className="bg-dark text-white">
-                  <Card.Img width={400} height={600} src={pictureSpa} alt="Бронирование услуг спа" />
-                  <Card.ImgOverlay>
-                    <Card.Title>Бронирование услуг спа</Card.Title>
-                    <Card.Text>
-                      This is a wider card with supporting text below as a
-                      natural lead-in to additional content. This content is a
-                      little bit longer.
-                    </Card.Text>
-                    <Card.Text>Last updated 3 mins ago</Card.Text>
-                  </Card.ImgOverlay>
-                </Card>
-              </Link>
-            </Col>
-            <Col xs={12} md={3}>
-            <Link to={routes.bar}>
-                <Card className="bg-dark text-white">
-                  <Card.Img width={400} height={600} src={pictureBar} alt="Бронирование услуг lounge зоны" />
-                  <Card.ImgOverlay>
-                    <Card.Title>Бронирование услуг lounge зоны</Card.Title>
-                    <Card.Text>
-                      This is a wider card with supporting text below as a
-                      natural lead-in to additional content. This content is a
-                      little bit longer.
-                    </Card.Text>
-                    <Card.Text>Last updated 3 mins ago</Card.Text>
-                  </Card.ImgOverlay>
-                </Card>
-              </Link>
-            </Col>
-          </Row>
+          <Row>{cardList}</Row>
         </Container>
       </>
     );
   }
 }
 
+const cards = [
+  {
+    title: "Бронирование услуг фитнесс-зоны",
+    text: "Sample text",
+    category: "gym",
+    img: pictureGym,
+    route: routes.gym
+  },
+  {
+    title: "Бронирование услуг бассейна",
+    text: "Sample text",
+    category: "pool",
+    img: picturePool,
+    route: routes.pool
+  },
+  {
+    title: "Бронирование услуг спа",
+    text: "Sample text",
+    category: "spa",
+    img: pictureSpa,
+    route: routes.spa
+  },
+  {
+    title: "Бронирование услуг lounge зоны",
+    text: "Sample text",
+    category: "lounge",
+    img: pictureLounge,
+    route: routes.lounge
+  }
+];
 export default withRouter(Menu);

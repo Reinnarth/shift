@@ -1,1 +1,0 @@
-const apiLocation = "http://localhost3000/hehe"

@@ -1,6 +1,6 @@
 export const spa = "/spa"
 export const gym = "/gym"
 export const pool = "/pool"
-export const bar = "/bar"
+export const lounge = "/lounge"
 export const home = "/"
-export const activity = "/activity"
+export const activity = "/:category/:activity"

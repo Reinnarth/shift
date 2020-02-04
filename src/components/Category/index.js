@@ -1,62 +1,48 @@
 import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import Activity from "../Activity";
-import ActivityList from '../Activity/ActivityList'
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import ToggleButton from 'react-bootstrap/ToggleButton'
-import Button from 'react-bootstrap/Button'
+import ActivityList from "../Activity/ActivityList";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Image from "react-bootstrap/Image";
+import ToggleButton from "react-bootstrap/ToggleButton";
+import Button from "react-bootstrap/Button";
 
+import gym from "../../assets/Menu/GymMenu.jpg";
+import pool from "../../assets/Menu/PoolMenu.jpeg";
+import spa from "../../assets/Menu/SpaMenu.jpg";
+import lounge from "../../assets/Menu/LoungeMenu.jpg";
+
+const image = {
+  gym,
+  pool,
+  spa,
+  lounge
+};
 export default function Category(props) {
+  const { name } = props;
   let history = useHistory();
 
   function handleClick() {
     history.push("/");
   }
 
-  if (props.name === "gym") {
-    return (
-      <>
-        <Activity></Activity>
-        <div>gym activities list</div>
-        <Button variant="primary" onClick={handleClick}>На главную</Button>
-      </>
-    );
-  } else if (props.name === "spa") {
-    return (
-      <>
+  return (
+    <>
       <Container>
-  <Row>
-    <Col>1 of 2</Col>
-    <Col><ActivityList>{props.name}</ActivityList></Col>
-  </Row>
-  </Container>
-        
-  <Button variant="primary" onClick={handleClick}>На главную</Button>
-      </>
-    );
-  } else if (props.name === "pool") {
-    return (
-      <>
-        <div>pool activities list</div>{" "}
-        <Button variant="primary" onClick={handleClick}>На главную</Button>
-      </>
-    );
-  } else if (props.name === "bar") {
-    return (
-      <>
-        {" "}
-        <div>bar activities list</div>{" "}
-        <Button variant="primary" onClick={handleClick}>На главную</Button>
-      </>
-    );
-  } else {
-    return (
-      <>
-        <div>Error, category {props.name} does not exist</div>
-        <Button variant="primary" onClick={handleClick}>На главную</Button>
-      </>
-    );
-  }
+        <Row>
+          <Col md={6}>
+            <Image src={image[name]} />
+          </Col>
+          <Col md={6}>
+            <div>{name} activities list</div>
+          </Col>
+          <Button variant="primary" onClick={handleClick}>
+            На главную
+          </Button>
+        </Row>
+      </Container>
+    </>
+  );
 }
