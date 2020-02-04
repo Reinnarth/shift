@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import Calendar from 'react-calendar';
+import TimeList from "../TimeList"
 
 import 'react-calendar/dist/Calendar.css'
 
 export default function Activity(props) {
   const [date, setDate] = useState(new Date());
   const onChange = date => {
-    console.log(date);
+  
     setDate(date);
   };
   const onClick = () => {
@@ -21,6 +22,7 @@ export default function Activity(props) {
         onChange={onChange}
       />
       <button onClick={onClick}>chekerino</button>
+      <TimeList date={date}></TimeList>
     </div>
   );
 }

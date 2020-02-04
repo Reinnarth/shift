@@ -3,6 +3,7 @@ import { Link, withRouter } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import * as routes from "../Routes/constants";
+import picture from "../../assets/1.jpg"
 
 class Menu extends Component {
   render() {
@@ -13,7 +14,7 @@ class Menu extends Component {
             <Col xs={12} md={3}>
               <Link to={routes.gym}>
                 <Card className="bg-dark text-white">
-                  <Card.Img src="" alt="Card image" />
+                  <Card.Img src={picture} alt="Card image" />
                   <Card.ImgOverlay>
                     <Card.Title>Card title</Card.Title>
                     <Card.Text>
