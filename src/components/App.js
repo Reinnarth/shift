@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import Menu from "./Menu";
 import Category from "./Category";
+import Header from "./Header"
 import * as routes from "./Routes/constants";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -9,6 +10,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return (
     <>
+    <Header></Header>
       <Switch>
         <Route exact path={routes.home}>
           <Menu />

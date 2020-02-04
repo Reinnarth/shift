@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import Activity from "../Activity";
 
 export default function Category(props) {
   let history = useHistory();
@@ -11,6 +12,7 @@ export default function Category(props) {
   if (props.name === "gym") {
     return (
       <>
+        <Activity></Activity>
         <div>gym activities list</div>
         <button type="button" onClick={handleClick}>
           Go home
