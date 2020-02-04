@@ -1,19 +1,19 @@
 import React from "react";
 import Navbar from 'react-bootstrap/Navbar'
-
+import Logo from '../../assets/Logo.png'
 export default function index() {
   return (
-    <div>
+    <div >
       <Navbar bg="dark" variant="dark">
-        <Navbar.Brand href="#home">
+        <Navbar.Brand href="/">
           <img
             alt=""
-            src="/logo.svg"
+            src={Logo}
             width="30"
             height="30"
             className="d-inline-block align-top"
           />{" "}
-          React Bootstrap
+         Бронирование всего в твоем общежитии
         </Navbar.Brand>
       </Navbar>
     </div>

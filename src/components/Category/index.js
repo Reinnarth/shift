@@ -1,6 +1,12 @@
 import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import Activity from "../Activity";
+import ActivityList from '../Activity/ActivityList'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import ToggleButton from 'react-bootstrap/ToggleButton'
+import Button from 'react-bootstrap/Button'
 
 export default function Category(props) {
   let history = useHistory();
@@ -14,27 +20,27 @@ export default function Category(props) {
       <>
         <Activity></Activity>
         <div>gym activities list</div>
-        <button type="button" onClick={handleClick}>
-          Go home
-        </button>
+        <Button variant="primary" onClick={handleClick}>На главную</Button>
       </>
     );
   } else if (props.name === "spa") {
     return (
       <>
-        <div>spa activities list</div>
-        <button type="button" onClick={handleClick}>
-          Go home
-        </button>
+      <Container>
+  <Row>
+    <Col>1 of 2</Col>
+    <Col><ActivityList>{props.name}</ActivityList></Col>
+  </Row>
+  </Container>
+        
+  <Button variant="primary" onClick={handleClick}>На главную</Button>
       </>
     );
   } else if (props.name === "pool") {
     return (
       <>
         <div>pool activities list</div>{" "}
-        <button type="button" onClick={handleClick}>
-          Go home
-        </button>
+        <Button variant="primary" onClick={handleClick}>На главную</Button>
       </>
     );
   } else if (props.name === "bar") {
@@ -42,18 +48,14 @@ export default function Category(props) {
       <>
         {" "}
         <div>bar activities list</div>{" "}
-        <button type="button" onClick={handleClick}>
-          Go home
-        </button>
+        <Button variant="primary" onClick={handleClick}>На главную</Button>
       </>
     );
   } else {
     return (
       <>
         <div>Error, category {props.name} does not exist</div>
-        <button type="button" onClick={handleClick}>
-          Go home
-        </button>
+        <Button variant="primary" onClick={handleClick}>На главную</Button>
       </>
     );
   }
