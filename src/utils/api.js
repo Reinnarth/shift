@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = "http://localhost5000/";
+const baseURL = "http://localhost5000";
 
 class Api {
   async getTime(category, activity) {
