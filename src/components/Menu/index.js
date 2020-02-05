@@ -19,7 +19,7 @@ class Menu extends Component {
                 width={400}
                 height={600}
                 src={card.img}
-                alt="Бронирование услуг фитнесс-зоны"
+                alt={card.title}
               />
               <Card.ImgOverlay>
                 <Card.Title>{card.title}</Card.Title>
