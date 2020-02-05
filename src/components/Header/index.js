@@ -4,18 +4,21 @@ import Logo from '../../assets/Logo.png'
 
 export default function index() {
   return (
-    <div className='header-wrapper'>
-      <Navbar bg="dark" variant="dark">
-        <Navbar.Brand href="/">
+    <div >
+      <Navbar bg="light" variant="light">
+        
+          <div margin-left="auto" margin-right="auto">
+          <Navbar.Brand href="/">
           <img
             alt=""
             src={Logo}
-            width="30"
-            height="30"
+            width="40"
+            height="40"
             className="d-inline-block align-top"
           />{" "}
          Бронирование всего в твоем общежитии
         </Navbar.Brand>
+        </div>
       </Navbar>
     </div>
   );
