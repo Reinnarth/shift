@@ -7,25 +7,30 @@ import pictureGym from "../../assets/Menu/GymMenu.jpg";
 import picturePool from "../../assets/Menu/PoolMenu.jpeg";
 import pictureSpa from "../../assets/Menu/SpaMenu.jpg";
 import pictureLounge from "../../assets/Menu/LoungeMenu.jpg";
+import Button from 'react-bootstrap/Button'
+
 
 class Menu extends Component {
   render() {
     const cardList = cards.map(card => {
       return (
-        <Col  xs={12} md={3}>
+        <Col>
           <Link to={card.route}>
             <Card className="bg-dark text-white" >
               <Card.Img
                 width={400}
                 height={600}
                 src={card.img}
-                alt="Бронирование услуг фитнесс-зоны"
+                alt={card.title}
               />
-              <Card.ImgOverlay>
+              <Card.ImgOverlay onHov>
                 <Card.Title>{card.title}</Card.Title>
                 <Card.Text>{card.text}</Card.Text>
               </Card.ImgOverlay>
             </Card>
+            <Button  variant="info" size="lg" block>
+    Перейти к бронированию
+  </Button>
           </Link>
         </Col>
       );
@@ -43,7 +48,7 @@ class Menu extends Component {
 const cards = [
   {
     title: "Бронирование услуг фитнесс-зоны",
-    text: "Sample text",
+    text: "Здесь вы сможете заброинровать что-то",
     category: "gym",
     img: pictureGym,
     route: routes.gym
