@@ -12,9 +12,9 @@ class Menu extends Component {
   render() {
     const cardList = cards.map(card => {
       return (
-        <Col  xs={12} md={3}>
+        <Col fluid={true} xs={12} md={3}>
           <Link to={card.route}>
-            <Card className="bg-dark text-white" >
+            <Card className="bg-dark text-white">
               <Card.Img
                 width={400}
                 height={600}
@@ -32,7 +32,7 @@ class Menu extends Component {
     });
     return (
       <>
-        <Container>
+        <Container style={{ margin:'30px auto' }}>
           <Row>{cardList}</Row>
         </Container>
       </>

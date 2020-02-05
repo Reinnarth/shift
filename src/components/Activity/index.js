@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { Container, Row, Col } from "react-bootstrap";
 import Calendar from "react-calendar";
 import TimeList from "../TimeList";
 import Api from "../../utils/api";
@@ -22,15 +23,15 @@ export default function Activity(props) {
   const onChange = date => {
     setDate(date);
   };
-  const onClick = () => {
-    console.log(date);
-  };
 
   return (
-    <div>
+    <Container>
+      <Row>
+        <Col>
       <Calendar value={date} onChange={onChange} />
-      <button onClick={onClick}>chekerino</button>
-      <TimeList date={date}></TimeList>
-    </div>
+      </Col>
+       <TimeList date={date}></TimeList>
+      </Row>
+    </Container>
   );
 }
