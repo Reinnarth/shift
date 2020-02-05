@@ -18,7 +18,7 @@ export default function Activity(props) {
     console.log(loot);
   });
 
-  console.log(category, activity);
+  console.log(Date.parse(date.toDateString()) );
 
   const onChange = date => {
     setDate(date);
@@ -28,7 +28,7 @@ export default function Activity(props) {
     <Container>
       <Row>
         <Col>
-      <Calendar value={date} onChange={onChange} />
+      <Calendar  value={date} onChange={onChange} />
       </Col>
        <TimeList date={date}></TimeList>
       </Row>
