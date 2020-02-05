@@ -1,14 +1,34 @@
 import axios from "axios";
 
-const baseURL = "http://localhost5000";
+const baseURL = "http://51.83.145.18:8080";
 
 class Api {
-  async getTime(category, activity) {
+  async getActivities(category) {
     try {
-      // const response = await axios.get(`${baseURL}/${category}/${activity}`);
+      // const response = await axios.get(`${baseURL}/${category}`);
       const response = {
-        data: {dateTime: {date: 1580835600000, time: "18:00"}}
-      }
+        data: {
+          activities: [
+            "Качалка",
+            "Беговая дорожка",
+            "Йога-зал",
+            "Брусья",
+            "Ринг/ММА зал"
+          ]
+        }
+      };
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async getTime(category, activity, date) {
+    try {
+      // const response = await axios.get(`${baseURL}/${category}/${activity}/${date}`);
+      const response = {
+        data: { dateTime: { date: 1580835600000, time: "18:00" } }
+      };
       return response;
     } catch (error) {
       console.log(error);
@@ -16,13 +36,13 @@ class Api {
   }
 
   async postTime(category, activity, dateTime) {
-   try{
-       const response = await axios.post(`${baseURL}/${category}/${activity}`)
-       return response
-   }catch(error){
-       console.log(error)
-   }
+    try {
+      const response = await axios.post(`${baseURL}/${category}/${activity}`);
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
   }
 }
 
-export default new Api()
+export default new Api();

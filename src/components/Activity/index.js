@@ -13,22 +13,24 @@ export default function Activity(props) {
 
   const { category, activity } = useParams();
 
-  useEffect(() => {
-    const loot = Api.getTime(category, activity);
-    console.log(loot);
-  });
+  // useEffect(() => {
+  //   const loot = Api.getTime(category, activity, date);
+  //   console.log(loot);
+  // });
 
   console.log(Date.parse(date.toDateString()) );
 
   const onChange = date => {
     setDate(date);
+    const loot = Api.getTime(category, activity, Date.parse(date.toDateString()));
+    console.log(loot);
   };
 
   return (
     <Container>
       <Row>
         <Col>
-      <Calendar  value={date} onChange={onChange} />
+      <Calendar locale="ru"  value={date} onChange={onChange} />
       </Col>
        <TimeList date={date}></TimeList>
       </Row>

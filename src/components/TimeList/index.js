@@ -1,10 +1,15 @@
 import React from 'react'
+import ListGroup from "react-bootstrap/ListGroup";
 
 export default function TimeList() {
 
+    // const listItems = data.map((data, index) => (
+    //     <ListGroup.Item key={index} onClick={() => goTo(index)}>{data}</ListGroup.Item>
+    //   ));
+
     return (
         <div>
-            <table class="table table-hover">
+            <table className="table table-hover">
                 <thead>
                     <tr>
                         <th>Доступное время</th>

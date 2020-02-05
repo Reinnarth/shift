@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import ListGroup from "react-bootstrap/ListGroup";
 import { withRouter } from "react-router-dom";
 import { allActivities } from "../../utils/data.js";
@@ -13,7 +13,7 @@ import { allActivities } from "../../utils/data.js";
   let data = allActivities[props.name];
 
   const listItems = data.map((data, index) => (
-    <ListGroup.Item onClick={() => goTo(index)}>{data}</ListGroup.Item>
+    <ListGroup.Item key={index} onClick={() => goTo(index)}>{data}</ListGroup.Item>
   ));
   return <ListGroup variant="flush">{listItems}</ListGroup>;
 }

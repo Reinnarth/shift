@@ -7,38 +7,45 @@ import pictureGym from "../../assets/Menu/GymMenu.jpg";
 import picturePool from "../../assets/Menu/PoolMenu.jpeg";
 import pictureSpa from "../../assets/Menu/SpaMenu.jpg";
 import pictureLounge from "../../assets/Menu/LoungeMenu.jpg";
-import Button from 'react-bootstrap/Button'
-
+import Button from "react-bootstrap/Button";
 
 class Menu extends Component {
-  render() {
-    const cardList = cards.map(card => {
-      return (
+  changeBackground(e) {
+    console.log(e.target.style)
 
-        <Col fluid={true} xs={12} md={3}>
+  }
+  render() {
+    const cardList = cards.map((card, index) => {
+      return (
+        <Col key={index} xs={12} md={3}>
           <Link to={card.route}>
-            <Card className="bg-dark text-white">
+            <Card
+              onMouseEnter={this.changeBackground}
+              onMouseLeave={this.changeBackground}
+              width={400}
+              className="bg-dark text-white"
+            >
               <Card.Img
                 width={400}
                 height={600}
                 src={card.img}
                 alt={card.title}
               />
-              <Card.ImgOverlay onHov>
+              <Card.ImgOverlay>
                 <Card.Title>{card.title}</Card.Title>
                 <Card.Text>{card.text}</Card.Text>
               </Card.ImgOverlay>
             </Card>
-            <Button  variant="info" size="lg" block>
-    Перейти к бронированию
-  </Button>
+            <Button variant="info" size="lg" >
+              Перейти к бронированию
+            </Button>
           </Link>
         </Col>
       );
     });
     return (
       <>
-        <Container style={{ margin:'30px auto' }}>
+        <Container style={{ margin: "30px auto" }}>
           <Row>{cardList}</Row>
         </Container>
       </>
