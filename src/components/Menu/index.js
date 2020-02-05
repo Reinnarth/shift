@@ -11,7 +11,7 @@ import Button from "react-bootstrap/Button";
 
 class Menu extends Component {
   changeBackground(e) {
-    console.log(e.target.style)
+   
 
   }
   render() {
