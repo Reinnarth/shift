@@ -36,8 +36,8 @@ export default function Category(props) {
             <Image src={image[name]} />
           </Col>
           <Col md={6}>
-            <ActivityList></ActivityList>
-            <div>{name} activities list</div>
+            <ActivityList name={name}></ActivityList>
+           
           </Col>
           <Button variant="primary" onClick={handleClick}>
             На главную
