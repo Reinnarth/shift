@@ -37,10 +37,21 @@ export default function Header({ svgName, titleName }) {
     textAlign: "center"
   }
   const headerStyle={
-
+    fontFamily: "Montserrat",
+    fontStyle: "normal",
+    fontWeight: "500",
+    fontSize: "48px",
+    lineHeight: "59px",
+    color: "#FA8654",
+    textAlign:"center",
+    marginTop: "2%",
+    marginRight: "40%",
   }
   const iconStyle={
-    marginRight:"10px"
+    marginRight:"30px",
+    width:"120px",
+    height:"120px"
+
   }
   const divHeaderStyle = {
 
@@ -58,6 +69,7 @@ export default function Header({ svgName, titleName }) {
             <Col onClick={handleClick} style={indexHeaderStyle}>{titleName}</Col>
           </Row>
         </Container>
+        <hr align="center" width="50%" size="2" color="#C4C4C4" />
       </header>
 
     );
@@ -69,6 +81,7 @@ export default function Header({ svgName, titleName }) {
         <div onClick={handleClick} style={headerStyle}><Image style={iconStyle} src={image[svgName]}/>{titleName}
 
         </div>
+        <hr align="center" width="50%" size="2" color="#C4C4C4" />
       </header>
     );
   }
