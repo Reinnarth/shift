@@ -22,12 +22,12 @@ class Menu extends Component {
             <Card
               onMouseEnter={this.changeBackground}
               onMouseLeave={this.changeBackground}
-              width={400}
+              width={265}
               className="bg-dark text-white"
             >
               <Card.Img
-                width={400}
-                height={600}
+                width={265}
+                height={443}
                 src={card.img}
                 alt={card.title}
               />
