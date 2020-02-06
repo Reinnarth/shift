@@ -9,6 +9,7 @@ import pictureSpa from "../../assets/Menu/SpaMenu.svg";
 import pictureLounge from "../../assets/Menu/LoungeMenu.svg";
 import pictureRectangle from "../../assets/Menu/Rectangle.svg"
 import Button from "react-bootstrap/Button";
+import Header from "../Header";
 
 class Menu extends Component {
   changeBackground(e) {
@@ -39,6 +40,8 @@ class Menu extends Component {
     }
     const cardList = cards.map((card, index) => {
       return (
+        <>
+        
         <Col key={index} xs={12} md={3} >
           <Link to={card.route}>
           <div style={colStyle}>
@@ -73,10 +76,12 @@ class Menu extends Component {
             </div>
           </Link>
         </Col>
+        </>
       );
     });
     return (
       <>
+      <Header svgName="null" titleName="Pleasureland"> </Header>
         <Container>
           <Row>{cardList}</Row>
         </Container>

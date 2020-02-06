@@ -6,11 +6,12 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
 import Button from "react-bootstrap/Button";
+import Header from "../Header";
 
-import gym from "../../assets/Menu/GymMenu.jpg";
-import pool from "../../assets/Menu/PoolMenu.jpeg";
-import spa from "../../assets/Menu/SpaMenu.jpg";
-import bar from "../../assets/Menu/LoungeMenu.jpg";
+import gym from "../../assets/Menu/GymMenu.svg";
+import pool from "../../assets/Menu/PoolMenu.svg";
+import spa from "../../assets/Menu/SpaMenu.svg";
+import bar from "../../assets/Menu/LoungeMenu.svg";
 
 const image = {
   gym,
@@ -19,8 +20,7 @@ const image = {
   bar
 };
 
-export default function Category(props) {
-  const { name } = props;
+export default function Category({name,titleName}) {
   let history = useHistory();
 
   function handleClick() {
@@ -28,6 +28,8 @@ export default function Category(props) {
   }
 
   return (
+    <>
+    <Header svgName={name} titleName={titleName}> </Header>
     <Container>
       <Row>
         <Col md={6}>
@@ -41,5 +43,6 @@ export default function Category(props) {
         </Button>
       </Row>
     </Container>
+    </>
   );
 }
