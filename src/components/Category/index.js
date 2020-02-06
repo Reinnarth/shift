@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import ActivityList from "../Activity/ActivityList";
 import Container from "react-bootstrap/Container";
@@ -7,13 +7,10 @@ import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
 import Button from "react-bootstrap/Button";
 
-
-
-import gym from "../../assets/Menu/GymMenu.svg";
-import pool from "../../assets/Menu/PoolMenu.svg";
-import spa from "../../assets/Menu/SpaMenu.svg";
-import bar from "../../assets/Menu/LoungeMenu.svg";
-
+import gym from "../../assets/Menu/GymMenu.jpg";
+import pool from "../../assets/Menu/PoolMenu.jpeg";
+import spa from "../../assets/Menu/SpaMenu.jpg";
+import bar from "../../assets/Menu/LoungeMenu.jpg";
 
 const image = {
   gym,
@@ -31,22 +28,18 @@ export default function Category(props) {
   }
 
   return (
-    <>
-      <Container>
-        <Row>
-          <Col md={6}>
-            <Image src={image[name]} />
-          </Col>
-          <Col md={6}>
-            <ActivityList
-              name={name}
-            ></ActivityList>
-          </Col>
-          <Button variant="primary" onClick={handleClick}>
-            На главную
-          </Button>
-        </Row>
-      </Container>
-    </>
+    <Container>
+      <Row>
+        <Col md={6}>
+          <Image src={image[name]} />
+        </Col>
+        <Col md={6}>
+          <ActivityList name={name}></ActivityList>
+        </Col>
+        <Button variant="primary" onClick={handleClick}>
+          На главную
+        </Button>
+      </Row>
+    </Container>
   );
 }
