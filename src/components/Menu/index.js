@@ -30,7 +30,6 @@ class Menu extends Component {
       borderRadius: "15px 15px 15px 15px",
       height:"125%",
       width:"125%"
-
     }
     const colStyle =
     {
