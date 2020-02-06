@@ -4,35 +4,41 @@ const baseURL = "http://51.83.145.18:8080";
 
 class Api {
   async getActivities(category) {
-    try {
-      // const response = await axios.get(`${baseURL}/${category}`);
-      const response = {
-        data: {
-          activities: [
-            "Качалка",
-            "Беговая дорожка",
-            "Йога-зал",
-            "Брусья",
-            "Ринг/ММА зал"
-          ]
-        }
-      };
-      return response;
-    } catch (error) {
-      console.log(error);
-    }
+    let junk = [];
+    await axios
+      .get(`${baseURL}/${category}`)
+      .then(function(response) {
+        junk = response.data;
+        console.log(response);
+      })
+      .catch(function(error) {
+        // handle error
+        console.log(error);
+      });
+
+    return junk;
   }
 
   async getTime(category, activity, date) {
-    try {
-      // const response = await axios.get(`${baseURL}/${category}/${activity}/${date}`);
-      const response = {
-        data: { dateTime: { date: 1580835600000, time: "18:00" } }
-      };
-      return response;
-    } catch (error) {
-      console.log(error);
-    }
+    // try {
+    //   // const response = await axios.get(`${baseURL}/${category}/${activity}/${date}`);
+    //   const response = {
+    //     data: { dateTime: { date: 1580835600000, time: "18:00" } }
+    //   };
+    //   return response;
+    // } catch (error) {
+    //   console.log(error);
+    // }
+    await axios
+      .get(`${baseURL}/${category}/${activity}/${date}`)
+      .then(function(response) {
+        //junk = response.data
+        console.log(response);
+      })
+      .catch(function(error) {
+        // handle error
+        console.log(error);
+      });
   }
 
   async postTime(category, activity, dateTime) {
