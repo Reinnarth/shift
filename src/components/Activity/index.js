@@ -56,7 +56,7 @@ export default function Activity(props) {
               }}
             />
           </Col>
-          <TimeList date={date}></TimeList>
+          <Col><TimeList date={date}></TimeList></Col>
         </Row>
       </Container>
     </>
