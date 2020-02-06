@@ -1,13 +1,16 @@
 import React from "react";
 import Navbar from 'react-bootstrap/Navbar'
-import { useHistory} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import * as routes from "../Routes/constants";
 import Image from 'react-bootstrap/Image'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
-import gym from "../../assets/Menu/GymMenu.svg";
-import pool from "../../assets/Menu/PoolMenu.svg";
-import spa from "../../assets/Menu/SpaMenu.svg";
-import bar from "../../assets/Menu/LoungeMenu.svg";
+import gym from "../../assets/Header/GymCategory.svg";
+import pool from "../../assets/Header/PoolCategory.svg";
+import spa from "../../assets/Header/SpaCategory.svg";
+import bar from "../../assets/Header/BarCategory.svg";
 
 const image = {
   gym,
@@ -17,10 +20,10 @@ const image = {
 };
 
 
-export default function Header({svgName,titleName}) {
- 
+export default function Header({ svgName, titleName }) {
 
-  const headerStyle={
+
+  const indexHeaderStyle = {
     fontFamily: "Montserrat",
     fontStyle: "normal",
     fontWeight: "500",
@@ -30,36 +33,49 @@ export default function Header({svgName,titleName}) {
     textTransform: "uppercase",
     color: "#415BB2",
     border: "none",
-    marginTop:"2%",
-    marginleft: "50%",
-    marginRight: "-50%",
-    margin: "0",
-    //transform: "translate(-50%, -50%)"
-
+    marginTop: "2%",
+    textAlign: "center"
+  }
+  const headerStyle={
 
   }
-  const divHeaderStyle={
-   
+  const iconStyle={
+    marginRight:"10px"
+  }
+  const divHeaderStyle = {
+
   }
   let history = useHistory();
 
   function handleClick() {
     history.push("/");
   }
-  if (svgName!=null) {
+  if (svgName === "null") {
     return (
-      <header style={divHeaderStyle}><div onClick={handleClick} style={headerStyle} thumbnail ><Image src={image[svgName]} />{titleName}</div></header>
+      <header style={divHeaderStyle}>
+        <Container>
+          <Row>
+            <Col onClick={handleClick} style={indexHeaderStyle}>{titleName}</Col>
+          </Row>
+        </Container>
+      </header>
+
     );
-    }
-   else {
+  }
+  else {
     return (
-      <header style={divHeaderStyle}><div onClick={handleClick} style={headerStyle} thumbnail >{titleName}</div></header>
+      <header style={divHeaderStyle}>
+        
+        <div onClick={handleClick} style={headerStyle}><Image style={iconStyle} src={image[svgName]}/>{titleName}
+
+        </div>
+      </header>
     );
-    }
-    
-  
-  
-      
-    
- 
+  }
+
+
+
+
+
+
 }
