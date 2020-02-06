@@ -27,7 +27,7 @@ function App() {
           <Category name="pool" />
         </Route>
         <Route exact path={routes.lounge}>
-          <Category name="lounge" />
+          <Category name="bar" />
         </Route>
         <Route
           exact path={routes.activity}
