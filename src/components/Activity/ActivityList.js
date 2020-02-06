@@ -31,10 +31,15 @@ function ActivityList(props) {
       {activity.rus}
     </ListGroup.Item>
   ));
-  return loading ? (
-    <Spinner></Spinner>
-  ) : (
-    <ListGroup variant="flush">{listItems}</ListGroup>
+  return (
+    <>
+      {loading && (
+        <>
+          <Spinner animation="border" />
+        </>
+      )}
+      {!loading && <ListGroup variant="flush">{listItems}</ListGroup>}
+    </>
   );
 }
 
