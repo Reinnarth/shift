@@ -8,10 +8,10 @@ import Image from "react-bootstrap/Image";
 import Button from "react-bootstrap/Button";
 
 
-import gym from "../../assets/Menu/GymMenu.jpg";
-import pool from "../../assets/Menu/PoolMenu.jpeg";
-import spa from "../../assets/Menu/SpaMenu.jpg";
-import bar from "../../assets/Menu/LoungeMenu.jpg";
+import gym from "../../assets/Menu/GymMenu.svg";
+import pool from "../../assets/Menu/PoolMenu.svg";
+import spa from "../../assets/Menu/SpaMenu.svg";
+import bar from "../../assets/Menu/LoungeMenu.svg";
 
 const image = {
   gym,
