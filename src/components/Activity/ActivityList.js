@@ -1,19 +1,21 @@
 import React, { useState, useEffect } from "react";
 import ListGroup from "react-bootstrap/ListGroup";
 import { withRouter } from "react-router-dom";
-import { allActivities } from "../../utils/data.js";
+import Spinner from "react-bootstrap/Spinner";
 
 import Api from "../../utils/api";
 
 //сюда передаем подраздел для формирования списка
 function ActivityList(props) {
   const { name } = props;
+  const [loading, setLoading] = useState(true);
   const [activityList, setActivityList] = useState([]);
 
   useEffect(() => {
     const fetchActivityList = async () => {
       const response = await Api.getActivities(name);
       setActivityList(response);
+      setLoading(false);
     };
 
     fetchActivityList();
@@ -29,7 +31,11 @@ function ActivityList(props) {
       {activity.rus}
     </ListGroup.Item>
   ));
-  return <ListGroup variant="flush">{listItems}</ListGroup>;
+  return loading ? (
+    <Spinner></Spinner>
+  ) : (
+    <ListGroup variant="flush">{listItems}</ListGroup>
+  );
 }
 
 export default withRouter(ActivityList);
