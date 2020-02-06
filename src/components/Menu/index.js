@@ -55,7 +55,7 @@ class Menu extends Component {
 
 const cards = [
   {
-    title: "Бронирование услуг фитнесс-зоны",
+    title: "Спортивный комплекс",
     text: "Здесь вы сможете заброинровать что-то",
     category: "gym",
     img: pictureGym,
