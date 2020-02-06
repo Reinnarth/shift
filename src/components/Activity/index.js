@@ -7,6 +7,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import TimeList from "../TimeList";
 import Api from "../../utils/api";
+import Header from "../Header";
 
 import "react-calendar/dist/Calendar.css";
 
@@ -17,6 +18,24 @@ export default function Activity(props) {
   const [currentDate, setCurrentDate] = useState(new Date());
  
   const { category, activity } = useParams();
+  let titleName;
+  if (category === "gym") {
+    titleName="Спортивный комплекс"
+  } else {
+    if (category === "spa") {
+      titleName="SPA-комплекс"
+    } else {
+      if (category === "pool") {
+        titleName="Аквапарк"
+      } else {
+        if(category === "bar")
+        titleName="Lounge-зона"
+        
+      }
+      
+    }
+    
+  }
 
   useEffect(() => {
     const fetchTime = async () => {
@@ -48,6 +67,7 @@ export default function Activity(props) {
 
   return (
     <>
+    <Header svgName={category} titleName={titleName}> </Header>
       <Container>
         <Row>
           <Col>
