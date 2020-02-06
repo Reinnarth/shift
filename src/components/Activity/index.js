@@ -13,21 +13,28 @@ import "react-calendar/dist/Calendar.css";
 // Компонент, содержащий календарь определенного вида деятельности, например - массаж
 export default function Activity(props) {
   const [date, setDate] = useState(new Date());
+  const [unavailableTime, setUnavailableTime] = useState([]);
   const [currentDate, setCurrentDate] = useState(new Date());
  
   const { category, activity } = useParams();
 
   useEffect(() => {
-    // console.log(date)
-     const loot = Api.getTime(
-      category,
-      activity,
-      Date.parse(date.toDateString())
-    );
-    console.log(loot);
-  });
+    const fetchTime = async () => {
+      const response = await Api.getTime(
+        category,
+        activity,
+        Date.parse(date.toDateString())
+      );
+      console.log(response);
+      setUnavailableTime(response);
+      //setLoading(false);
+    };
 
-  const tileDisabled = ({ date, view }) => {
+
+    fetchTime();
+  }, [date]);
+
+   const tileDisabled = ({ date, view }) => {
     if (date < new Date(currentDate.toDateString())) {
       return true;
     }
