@@ -7,10 +7,20 @@ import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
 import Button from "react-bootstrap/Button";
 
+<<<<<<< HEAD
 import gym from "../../assets/Menu/GymMenu.jpg";
 import pool from "../../assets/Menu/PoolMenu.jpeg";
 import spa from "../../assets/Menu/SpaMenu.jpg";
 import bar from "../../assets/Menu/LoungeMenu.jpg";
+=======
+
+
+import gym from "../../assets/Menu/GymMenu.svg";
+import pool from "../../assets/Menu/PoolMenu.svg";
+import spa from "../../assets/Menu/SpaMenu.svg";
+import bar from "../../assets/Menu/LoungeMenu.svg";
+
+>>>>>>> 68c0cbc5a8a07ab250658b7e6c8b42d4d643acd0
 
 const image = {
   gym,
