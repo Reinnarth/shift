@@ -18,7 +18,7 @@ export default function TimeList() {
 
   return (
     <Container>
-      Ljcnegyjt dhtvz:
+      Выберите время:
       <Row>
         <Col md={3}>
           <OverlayTrigger
