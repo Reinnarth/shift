@@ -11,13 +11,13 @@ import Button from "react-bootstrap/Button";
 import gym from "../../assets/Menu/GymMenu.jpg";
 import pool from "../../assets/Menu/PoolMenu.jpeg";
 import spa from "../../assets/Menu/SpaMenu.jpg";
-import lounge from "../../assets/Menu/LoungeMenu.jpg";
+import bar from "../../assets/Menu/LoungeMenu.jpg";
 
 const image = {
   gym,
   pool,
   spa,
-  lounge
+  bar
 };
 
 export default function Category(props) {

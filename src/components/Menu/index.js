@@ -78,7 +78,7 @@ const cards = [
   {
     title: "Бронирование услуг lounge зоны",
     text: "Sample text",
-    category: "lounge",
+    category: "bar",
     img: pictureLounge,
     route: routes.lounge
   }
