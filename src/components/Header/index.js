@@ -48,6 +48,7 @@ export default function Header({ svgName, titleName }) {
     textAlign:"center",
     marginTop: "2%",
     marginRight: "40%",
+    cursor: 'pointer'
   }
   const iconStyle={
     marginRight:"30px",
