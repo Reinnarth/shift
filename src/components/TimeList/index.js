@@ -6,12 +6,7 @@ import Button from "react-bootstrap/Button";
 
 import BookingForm from "../BookingForm";
 
-const textStyle = {
-  fontFamily: "Montserrat",
-  fontStyle: "normal",
-  fontWeight: "500",
-  fontSize: "34px"
-};
+
 export default function TimeList({
   date,
   unavailableTime,
@@ -25,21 +20,17 @@ export default function TimeList({
     setTime(e.target.value);
     setShow(true);
   };
-  // let history = useHistory();
 
-  // function handleClick() {
-  //   history.push("/");
-  // }
   const listItems = timelist.map((time, index) => {
     return (
       <Col key={index} md={6}>
         <div style={timeButtonWrapper}>
           {unavailableTime.indexOf(time) !== -1 ? (
             <Button
-              style={timeButton}
+              style={{width: "100%", opacity: "0.5"}}
               key={index}
               value={time}
-              variant="outline-warning"
+              variant="secondary"
               className="disabled"
               disabled
             >

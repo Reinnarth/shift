@@ -8,8 +8,8 @@ import * as Yup from "yup";
 import Api from "../../utils/api";
 
 const message = {
-  success: "Успех",
-  error: "Неудача"
+  success: "Успешно забронированно",
+  error: "Неудалось забронировать"
 };
 
 export default function BookingForm({
@@ -21,7 +21,6 @@ export default function BookingForm({
   unavailableTime,
   setUnavailableTime
 }) {
-
   const [showSuccess, setShowSuccess] = useState(false);
   const [success, setSuccess] = useState("error");
 
@@ -74,9 +73,9 @@ export default function BookingForm({
           >
             <Form autoComplete="off">
               <Container>
-                <Row>
+                <Row style={rowStyle}>
                   <label style={textStyle}>
-                    Дата:{" "} 
+                    Дата:{" "}
                     {date.toLocaleDateString("ru", {
                       weekday: "long",
                       year: "numeric",
@@ -85,40 +84,40 @@ export default function BookingForm({
                     })}
                   </label>
                 </Row>
-                <Row>
+                <Row style={rowStyle}>
                   <label style={textStyle}>Время: {time} </label>
                 </Row>
-                <Row>
+                <Row style={rowStyle}>
                   <label style={textStyle}>Номер твоего студенческого: </label>
                 </Row>
 
-                <Row>
+                <Row style={rowStyle}>
                   <Field
                     style={idFormStyle}
                     name="studentDocument"
                     type="text"
                   />
                   <div style={errorStyle}>
-                    <ErrorMessage name="studentDocument" />
+                    <ErrorMessage
+                      style={{ position: "absolute" }}
+                      name="studentDocument"
+                    />
                   </div>
                 </Row>
-                <Row>
-                  <Col>
+                <Row style={rowStyle}>
+                  <Col
+                    style={{
+                      display: "flex",
+                      justifyContent: "center"
+                    }}
+                    md={12}
+                  >
                     <Button
                       style={buttonSubmitStyle}
                       variant="primary"
                       type="submit"
                     >
                       Забронировать
-                    </Button>
-                  </Col>
-                  <Col>
-                    <Button
-                      style={buttonCancelStyle}
-                      variant="light"
-                      onClick={() => setShow(false)}
-                    >
-                      Отмена
                     </Button>
                   </Col>
                 </Row>
@@ -139,22 +138,18 @@ export default function BookingForm({
             {message[success]}
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body>
-          <Button
-            style={buttonCancelStyle}
-            variant="light"
-            onClick={() => setShowSuccess(false)}
-          >
-            Закрыть
-          </Button>
-        </Modal.Body>
       </Modal>
     </>
   );
 }
 
+const rowStyle = {
+  margin: "15px 0px "
+};
+
 const buttonSubmitStyle = {
   backgroundColor: "#FF8251",
+  textAlign: "center",
   border: "none",
   marginTop: "10px"
 };
@@ -164,10 +159,11 @@ const buttonCancelStyle = {
   marginLeft: "50px"
 };
 const idFormStyle = {
-  backgroundColor: "C4C4C4",
-  marginRight: "20px"
+  width: "100%",
+  backgroundColor: "C4C4C4"
 };
 const errorStyle = {
+  position: "relative",
   color: "#dc3545"
 };
 const textStyle = {
