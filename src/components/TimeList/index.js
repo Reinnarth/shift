@@ -6,6 +6,7 @@ import Overlay from "react-bootstrap/Overlay";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 import Button from "react-bootstrap/Button";
+import { useHistory } from "react-router-dom";
 
 import BookingForm from "../BookingForm";
 
@@ -22,6 +23,11 @@ export default function TimeList({
     setTime(e.target.value);
     setShow(true);
   };
+  let history = useHistory();
+
+  function handleClick() {
+    history.push("/");
+  }
 
   const listItems = timelist.map((time, index) => {
     console.log(unavailableTime);
@@ -54,47 +60,22 @@ export default function TimeList({
 
 
   return (
+    
     <Container>
+      
       Выберите время:
       <Row>
         <Col md={3}>
           {listItems}
-          {/* <OverlayTrigger
-            overlay={<Tooltip id="tooltip-disabled">Время занято</Tooltip>}
-          >
-            <Button
-              block
-              disabled
-              style={{ pointerEvents: "none" }}
-              variant="outline-secondary"
-            >
-              9:00
-            </Button>
-          </OverlayTrigger>
-
-          <Button block variant="outline-secondary">
-            11:00
-          </Button> */}
+         
         </Col>
+        
         <Col md={3}>
-          {/* <OverlayTrigger
-            overlay={<Tooltip id="tooltip-disabled">Время занято</Tooltip>}
-          >
-            <Button
-              block
-              disabled
-              style={{ pointerEvents: "none" }}
-              variant="outline-secondary"
-            >
-              9:00
-            </Button>
-          </OverlayTrigger>
-
-          <Button block variant="outline-secondary">
-            11:00
-          </Button> */}
+          
         </Col>
+        
       </Row>
+      
       <BookingForm
         date={date}
         time={time}
@@ -109,52 +90,15 @@ export default function TimeList({
       </Button> */}
     </Container>
   );
-  // return (
-  //     <div>
-  //         <table className="table table-hover">
-  //             <thead>
-  //                 <tr>
-  //                     <th>Доступное время</th>
-  //                 </tr>
-  //             </thead>
-  //             <tfoot>
-  //                 <tr>
-  //                     <th>Тут будет форма и кнопка</th>
-  //                 </tr>
-  //             </tfoot>
-  //             <tbody>
-  //                 <tr>
-  //                     <td>9:00</td>
-  //                 </tr>
-  //                 <tr>
-  //                     <td>10:00</td>
-  //                 </tr>
-  //                 <tr>
-  //                     <td>11:00</td>
-  //                 </tr>
-  //                 <tr>
-  //                     <td>12:00</td>
-  //                 </tr>
-  //                 <tr>
-  //                     <td>13:00</td>
-  //                 </tr>
-  //                 <tr>
-  //                     <td>14:00</td>
-  //                 </tr>
-  //                 <tr>
-  //                     <td>15:00</td>
-  //                 </tr>
-  //                 <tr>
-  //                     <td>16:00</td>
-  //                 </tr>
-  //                 <tr>
-  //                     <td>17:00</td>
-  //                 </tr>
-  //                 <tr>
-  //                     <td>18:00</td>
-  //                 </tr>
-  //             </tbody>
-  //         </table>
-  //     </div>
-  // )
+  
 }
+const buttonStyle = {
+  marginTop: "50px",
+  backgroundColor: "#FF8251",
+  borderRadius: "15px 15px 15px 15px",
+  width: "50%",
+  border:"none",
+  boxShadow: '0 0 15px rgba(0,0,0,0.5)',
+  marginRight:"auto",
+  marginLeft:"auto"
+};
