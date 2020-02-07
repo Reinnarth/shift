@@ -11,9 +11,10 @@ import pictureRectangle from "../../assets/Menu/Rectangle.svg";
 import Button from "react-bootstrap/Button";
 import Header from "../Header";
 
-
 class Menu extends Component {
-  changeBackground(e) {}
+  changeBackground(e) {
+    console.log(e.target);
+  }
   render() {
     const buttonStyle = {
       marginTop: "50px",
@@ -69,21 +70,39 @@ class Menu extends Component {
                   justifyContent='center'
                   alignItems='center'
                 >
-                  <path
-                    d="M19.8057 0L16 3.1725L28.3617 13.5L16 23.8275L19.8057 27L36 13.5L19.8057 0Z"
-                    fill="white"
-                  />
-                </svg>
-              </Button>
-            </div>
-          </Link>
-        </Col>
+                  <Card.Img src={card.img} alt={card.title} />
+                  <Card.ImgOverlay>
+                    <Card.Title>{/* {card.title} */}</Card.Title>
+                    <Card.Text>{/* {card.text} */}</Card.Text>
+                  </Card.ImgOverlay>
+                </Card>
+                <Button style={buttonStyle} variant="info" size="lg">
+                  <svg
+                    width="44"
+                    height="36"
+                    viewBox="0 0 44 36"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    justifyContent="center"
+                    alignItems="center"
+                  >
+                    <path
+                      d="M19.8057 0L16 3.1725L28.3617 13.5L16 23.8275L19.8057 27L36 13.5L19.8057 0Z"
+                      fill="white"
+                    />
+                  </svg>
+                </Button>
+              </div>
+            </Link>
+          </Col>
         </>
       );
     });
     return (
       <>
-      <Header svgName="null" titleName="Pleasureland"> </Header>
+        <Header svgName="null" titleName="Pleasureland">
+          {" "}
+        </Header>
         <Container>
           <Row>{cardList}</Row>
         </Container>
