@@ -47,7 +47,7 @@ export default function TimeList({
               style={timeButton}
               key={index}
               value={time}
-              variant="outline-success"
+              variant="outline-secondary"
               onClick={chooseTime}
             >
               {time}
@@ -60,7 +60,7 @@ export default function TimeList({
 
   return (
     <>
-      Выберите время:
+      <div style={nameStyle}>Выберите время:</div>
       {listItems}
       {/* <Col md={3}></Col> */}
       <BookingForm
@@ -78,20 +78,17 @@ export default function TimeList({
 
 const timeButtonWrapper = {
   display: "flex",
-  align: "right",
-  flexWrap: "wrap",
-  justifyContent: "space-evenly"
+  float: "left",
+  marginRight: "4%",
+  marginBottom: "4%",
+  marginTop: "4%",
+  width: "46%"
 };
 
-const timeButton = {};
+const timeButton = {
+  width: "100%"
+};
 
-const buttonStyle = {
-  marginTop: "50px",
-  backgroundColor: "#FF8251",
-  borderRadius: "15px 15px 15px 15px",
-  width: "50%",
-  border: "none",
-  boxShadow: "0 0 15px rgba(0,0,0,0.5)",
-  marginRight: "auto",
-  marginLeft: "auto"
+const nameStyle = {
+  marginLeft: "3%"
 };
