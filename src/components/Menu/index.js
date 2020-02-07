@@ -126,16 +126,16 @@ const buttonStyle = {
   marginTop: "50px",
   backgroundColor: "#FF8251",
   borderRadius: "15px 15px 15px 15px",
-  height: "125%",
-  width: "125%",
+  height: "100%",
+  width: "100%",
   border:"none",
   boxShadow: '0 0 10px rgba(0,0,0,1)'
 };
 const cardStyle = {
   marginTop: "30%",
   borderRadius: "15px 15px 15px 15px",
-  height: "125%",
-  width: "125%"
+  height: "100%",
+  width: "100%"
 };
 const colStyle = {
   marginLeft: "10%",
