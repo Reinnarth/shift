@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import { Container, Row, Col } from "react-bootstrap";
@@ -7,25 +7,25 @@ import * as Yup from "yup";
 
 import Api from "../../utils/api";
 
-export default function BookingForm({ date, time, category }) {
-  const [show, setShow] = useState(false);
-
-  const onSubmit = async ({studentDocument}) => {
- 
+export default function BookingForm({
+  date,
+  time,
+  category,
+  show,
+  setShow,
+  unavailableTime,
+  setUnavailableTime
+}) {
+  const onSubmit = async ({ studentDocument }) => {
     const dateTime = {
-      date,
-      time
+      date: parseInt(Date.parse(date.toDateString())),
+      time: time
     };
-  // await Api.postTime(category, dateTime, parseInt(studentDocument, 10))
-   //console.log("posted")
+    await Api.postTime(category, dateTime, parseInt(studentDocument, 10));
   };
 
   return (
     <>
-      <Button variant="primary" onClick={() => setShow(true)}>
-        Custom Width Modal
-      </Button>
-
       <Modal
         show={show}
         onHide={() => setShow(false)}
@@ -40,7 +40,8 @@ export default function BookingForm({ date, time, category }) {
           <Formik
             initialValues={{ studentDocument: "" }}
             validationSchema={Yup.object({
-              studentDocument: Yup.string().matches(/^[0-9]*$/, "Only numbers")
+              studentDocument: Yup.string()
+                .matches(/^[0-9]*$/, "Only numbers")
                 .length(10, "Must be 10 characters")
                 .required("Required")
             })}
@@ -49,10 +50,10 @@ export default function BookingForm({ date, time, category }) {
             <Form autoComplete="off">
               <Container>
                 <Row>
-                  <label>Дата: {date} </label>
+                  <label>Дата: {date.toDateString()} </label>
                 </Row>
                 <Row>
-                  <label>Время:</label>
+                  <label>Время: {time} </label>
                 </Row>
                 <Row>
                   <label>Номер ID: </label>

@@ -12,31 +12,33 @@ import Header from "../Header";
 import "react-calendar/dist/Calendar.css";
 
 // Компонент, содержащий календарь определенного вида деятельности, например - массаж
-export default function Activity(props) {
+export default function Activity() {
   const [date, setDate] = useState(new Date());
   const [unavailableTime, setUnavailableTime] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentDate, setCurrentDate] = useState(new Date());
 
   const { category, activity } = useParams();
-  let titleName;
-  if (category === "gym") {
-    titleName="Спортивный комплекс"
-  } else {
-    if (category === "spa") {
-      titleName="SPA-комплекс"
-    } else {
-      if (category === "pool") {
-        titleName="Аквапарк"
-      } else {
-        if(category === "bar")
-        titleName="Lounge-зона"
-        
-      }
-      
-    }
-    
-  }
+
+  const titleName = {
+    gym: "Спортивный комплекс",
+    spa: "SPA-комплекс",
+    pool: "Аквапарк",
+    bar: "Lounge-зона"
+  };
+  // if (category === "gym") {
+  //   titleName = "Спортивный комплекс";
+  // } else {
+  //   if (category === "spa") {
+  //     titleName = "SPA-комплекс";
+  //   } else {
+  //     if (category === "pool") {
+  //       titleName = "Аквапарк";
+  //     } else {
+  //       if (category === "bar") titleName = "Lounge-зона";
+  //     }
+  //   }
+  // }
 
   useEffect(() => {
     const fetchTime = async () => {
@@ -67,7 +69,7 @@ export default function Activity(props) {
 
   return (
     <>
-    <Header svgName={category} titleName={titleName}> </Header>
+      <Header svgName={category} titleName={titleName[category]}></Header>
       <Container>
         <Row>
           <Col>
@@ -78,19 +80,23 @@ export default function Activity(props) {
               maxDate={new Date(Date.now() + 12096e5)}
               onClickDay={onClickDay}
               tileDisabled={tileDisabled}
-              onDrillUp={({ activeStartDate, view }) => {
-                console.log(activeStartDate, view);
-              }}
             />
           </Col>
 
           <Col>
             {loading && (
               <>
-                <Spinner animation="border"/>
+                <Spinner animation="border" />
               </>
             )}
-            {!loading && <TimeList date={date}></TimeList>}
+            {!loading && (
+              <TimeList
+                date={date}
+                category={activity}
+                unavailableTime={unavailableTime}
+                setUnavailableTime={setUnavailableTime}
+              ></TimeList>
+            )}
           </Col>
         </Row>
       </Container>
