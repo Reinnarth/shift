@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const baseURL = "http://51.83.145.18:8080/api/v1";
-// const hehe=`${baseURL}/${category}/${activity}`
+const baseURL = "http://51.83.145.18:8080/api/v2";
+
 class Api {
   async getActivities(category) {
     let activities = [];
@@ -20,9 +20,9 @@ class Api {
   }
 
   async getTime(category, activity, date) {
-    let time = []
+    let time = [];
     await axios
-      .get(`${baseURL}/services/${activity}/${date}`, {
+      .get(`${baseURL}/services_v2/${activity}/${date}`, {
         mode: "no-cors",
         headers: {
           "Access-Control-Allow-Origins": "*",
@@ -31,22 +31,23 @@ class Api {
         }
       })
       .then(function(response) {
-        time = response.data
+        time = response.data;
         console.log(response);
       })
       .catch(function(error) {
         // handle error
         console.log(error);
       });
-      return time
+    return time;
   }
 
-  async postTime(category,  dateTime, studentDocument) {
+  async postTime(category, dateTime, studentDocument) {
+    let data = {};
     await axios
       .post(`${baseURL}/add`, {
         mode: "no-cors",
         headers: {
-          "Access-COntrol-Allow-Origins": "*",
+          "Access-Control-Allow-Origins": "*",
           Accept: "application/json",
           "Content-Type": "application/json"
         },
@@ -55,24 +56,13 @@ class Api {
         studentDocument: studentDocument
       })
       .then(response => {
+        data = response;
         console.log(response);
       })
       .catch(error => {
         console.log(error);
       });
-    // try {
-    //   const response = await axios.post(`${baseURL}/${category}/${activity}`,  {
-    //     service: "gym",
-    //     dateTime:{
-    //       date: 1555555555,
-    //       time: "18:00"
-    //     },
-    //     studentDocument: 515313513551
-    //   });
-    //   return response;
-    // } catch (error) {
-    //   console.log(error);
-    // }
+      return data
   }
 }
 

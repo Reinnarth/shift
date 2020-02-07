@@ -31,19 +31,6 @@ export default function Activity() {
     pool: "Аквапарк",
     bar: "Lounge-зона"
   };
-  // if (category === "gym") {
-  //   titleName = "Спортивный комплекс";
-  // } else {
-  //   if (category === "spa") {
-  //     titleName = "SPA-комплекс";
-  //   } else {
-  //     if (category === "pool") {
-  //       titleName = "Аквапарк";
-  //     } else {
-  //       if (category === "bar") titleName = "Lounge-зона";
-  //     }
-  //   }
-  // }
 
   useEffect(() => {
     const fetchTime = async () => {
@@ -52,8 +39,8 @@ export default function Activity() {
         activity,
         Date.parse(date.toDateString())
       );
-      console.log(response);
-      setUnavailableTime(response);
+        console.log(response.data)
+      setUnavailableTime(response.data);
       setLoading(false);
     };
 
@@ -77,7 +64,7 @@ export default function Activity() {
       <Header svgName={category} titleName={titleName[category]}></Header>
       <Container marginLeft="100px" marginRight="100px">
         <Row>
-          <Col>
+          <Col md={6}>
             <Calendar
               locale="ru"
               value={date}
@@ -91,7 +78,7 @@ export default function Activity() {
         </Button>
           </Col>
 
-          <Col>
+          <Col md={6}>
             {loading && (
               <>
                 <Spinner animation="border" />

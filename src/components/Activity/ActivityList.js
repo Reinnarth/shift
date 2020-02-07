@@ -12,6 +12,7 @@ function ActivityList(props) {
   const [activityList, setActivityList] = useState([]);
   const itemStyle = {
     fontFamily: "Montserrat",
+    fontColor:"#C4C4C4",
     fontStyle: "normal",
     fontWeight: "500",
     fontSize: "34px",
@@ -36,7 +37,7 @@ function ActivityList(props) {
   useEffect(() => {
     const fetchActivityList = async () => {
       const response = await Api.getActivities(name);
-      setActivityList(response);
+      setActivityList(response.data);
       setLoading(false);
     };
 

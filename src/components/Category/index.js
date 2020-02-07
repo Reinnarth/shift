@@ -13,6 +13,7 @@ import pool from "../../assets/Category/Pool.svg";
 import spa from "../../assets/Category/Spa.svg";
 import bar from "../../assets/Category/Bar.svg";
 
+
 const image = {
   gym,
   pool,
@@ -43,9 +44,7 @@ const containerStyle={
         <Col md={6}>
         <div style={itemStyle}  display="inline-block">Направления:</div>
           <ActivityList name={name}></ActivityList>
-         
-        </Col>
-        
+        </Col>              
       </Row>
     </Container>
     </>

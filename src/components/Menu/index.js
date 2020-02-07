@@ -15,6 +15,26 @@ import Header from "../Header";
 class Menu extends Component {
   changeBackground(e) {}
   render() {
+    const buttonStyle = {
+      marginTop: "50px",
+      width: "100%",
+      backgroundColor: "#FF8251",
+      borderRadius: "15px 15px 15px 15px",
+      height:"125%",
+      width:"125%"
+    }
+    const cardStyle =
+    {
+      marginTop: "10%",
+      borderRadius: "15px 15px 15px 15px",
+      height:"125%",
+      width:"125%"
+    }
+    const colStyle =
+    {
+      marginLeft: "10%",
+      marginRight: "10%",
+    }
     const cardList = cards.map((card, index) => {
       return (
 
