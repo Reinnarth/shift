@@ -14,7 +14,7 @@ function ActivityList(props) {
     fontFamily: "Montserrat",
     fontStyle: "normal",
     fontWeight: "500",
-    fontSize: "36px",
+    fontSize: "34px",
     lineHeight: "44px"
   };
   const nextPageimage = (
