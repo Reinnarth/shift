@@ -12,6 +12,7 @@ function ActivityList(props) {
   const [activityList, setActivityList] = useState([]);
   const itemStyle = {
     fontFamily: "Montserrat",
+    fontColor:"#C4C4C4",
     fontStyle: "normal",
     fontWeight: "500",
     fontSize: "34px",

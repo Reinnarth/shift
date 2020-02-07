@@ -25,7 +25,7 @@ class Menu extends Component {
     }
     const cardStyle =
     {
-      marginTop: "30%",
+      marginTop: "10%",
       borderRadius: "15px 15px 15px 15px",
       height:"125%",
       width:"125%"

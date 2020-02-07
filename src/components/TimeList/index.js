@@ -8,7 +8,12 @@ import Tooltip from "react-bootstrap/Tooltip";
 import Button from "react-bootstrap/Button";
 
 import BookingForm from "../BookingForm";
-
+const textStyle={
+  fontFamily: "Montserrat",
+  fontStyle: "normal",
+  fontWeight: "500",
+  fontSize: "34px",
+}
 export default function TimeList({
   date,
   unavailableTime,
@@ -55,7 +60,7 @@ export default function TimeList({
 
   return (
     <Container>
-      Выберите время:
+      <div style={textStyle}>Доступное время:</div>
       <Row>
         <Col md={3}>
           {listItems}

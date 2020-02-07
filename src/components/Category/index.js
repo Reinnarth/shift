@@ -13,6 +13,14 @@ import pool from "../../assets/Menu/PoolMenu.svg";
 import spa from "../../assets/Menu/SpaMenu.svg";
 import bar from "../../assets/Menu/LoungeMenu.svg";
 
+const buttonStyle = {
+  marginTop: "30px",
+  width: "100%",
+  backgroundColor: "#FF8251",
+  borderRadius: "15px 15px 15px 15px",
+  height:"125%",
+  width:"265px"
+}
 const image = {
   gym,
   pool,
@@ -38,7 +46,7 @@ export default function Category({name,titleName}) {
         <Col md={6}>
           <ActivityList name={name}></ActivityList>
         </Col>
-        <Button variant="primary" onClick={handleClick}>
+        <Button onClick={handleClick} style={buttonStyle}>
           На главную
         </Button>
       </Row>
