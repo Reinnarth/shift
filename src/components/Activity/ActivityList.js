@@ -16,7 +16,8 @@ function ActivityList(props) {
     fontStyle: "normal",
     fontWeight: "500",
     fontSize: "34px",
-    lineHeight: "44px"
+    lineHeight: "44px",
+    cursor: "pointer"
   };
   const nextPageimage = (
     <svg
@@ -36,7 +37,7 @@ function ActivityList(props) {
   useEffect(() => {
     const fetchActivityList = async () => {
       const response = await Api.getActivities(name);
-      setActivityList(response);
+      setActivityList(response.data);
       setLoading(false);
     };
 
@@ -49,6 +50,8 @@ function ActivityList(props) {
   };
 
   const listItems = activityList.map((activity, index) => (
+    <>
+    
     <ListGroup.Item
       style={itemStyle}
       key={index}
@@ -59,6 +62,7 @@ function ActivityList(props) {
       {nextPageimage}
       
     </ListGroup.Item>
+    </>
   ));
   return (
     <>

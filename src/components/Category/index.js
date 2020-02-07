@@ -42,6 +42,7 @@ const containerStyle={
         </Button>
         </Col>
         <Col md={6}>
+        <div style={itemStyle}  display="inline-block">Направления:</div>
           <ActivityList name={name}></ActivityList>
         </Col>              
       </Row>
@@ -58,4 +59,12 @@ const buttonStyle = {
   boxShadow: '0 0 15px rgba(0,0,0,0.5)',
   marginRight:"auto",
   marginLeft:"auto"
+};
+const itemStyle = {
+  fontFamily: "Montserrat",
+  fontStyle: "normal",
+  fontWeight: "500",
+  fontSize: "34px",
+  lineHeight: "44px",
+  textAlign:'center'
 };
