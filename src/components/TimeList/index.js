@@ -30,6 +30,7 @@ export default function TimeList({
   }
 
   const listItems = timelist.map((time, index) => {
+
     console.log(unavailableTime);
     if (unavailableTime.indexOf(time) !== -1) {
       return (
@@ -76,6 +77,7 @@ export default function TimeList({
         
       </Row>
       
+
       <BookingForm
         date={date}
         time={time}
@@ -85,11 +87,10 @@ export default function TimeList({
         unavailableTime={unavailableTime}
         setUnavailableTime={setUnavailableTime}
       />
-      {/* <Button variant="primary" onClick={() => setShow(true)}>
-        
-      </Button> */}
-    </Container>
+    </>
   );
+
+
   
 }
 const buttonStyle = {
@@ -102,3 +103,4 @@ const buttonStyle = {
   marginRight:"auto",
   marginLeft:"auto"
 };
+
