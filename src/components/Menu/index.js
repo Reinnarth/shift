@@ -18,14 +18,9 @@ class Menu extends Component {
   render() {
     const cardList = cards.map((card, index) => {
       return (
-<<<<<<< HEAD
         <>
-        
         <Col key={index} xs={12} md={3} >
-=======
-        
-        <Col key={index} xs={12} md={3}>
->>>>>>> form
+
           <Link to={card.route}>
             <div style={colStyle}>
               <Card
