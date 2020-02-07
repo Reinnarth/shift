@@ -38,6 +38,7 @@ export default function TimeList({
               key={index}
               value={time}
               variant="outline-warning"
+              className="disabled"
               disabled
             >
               {time}

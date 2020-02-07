@@ -27,17 +27,18 @@ export default function BookingForm({
       date: parseInt(Date.parse(date.toDateString())),
       time: time
     };
-    const response = await Api.postTime(
-      category,
-      dateTime,
-      parseInt(studentDocument, 10)
-    ).then((response) => {console.log(response  )});
-    if (response.data.status.code !== "ERROR") {
-      setSuccess("success");
-    }
+    await Api.postTime(category, dateTime, parseInt(studentDocument, 10))
+      .then(response => {
+        if (response.data.status.code !== "ERROR") {
+          setSuccess("success");
+          unavailableTime.push(response.data.data.dateTime.time);
+          setUnavailableTime(unavailableTime);
+        }
+      })
+      .catch(error => {
+        console.log(error);
+      });
 
-    unavailableTime.push(response.data.dateTime.time);
-    setUnavailableTime(unavailableTime);
     setShow(false);
     setShowSuccess(true);
   };
