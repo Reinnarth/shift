@@ -4,7 +4,7 @@ import Menu from "./Menu";
 import Category from "./Category";
 import Activity from "./Activity";
 import * as routes from "./Routes/constants";
-
+import Footer from "../components/Footer"
 import "bootstrap/dist/css/bootstrap.min.css";
 
 
@@ -33,6 +33,7 @@ function App() {
           render={props => <Activity {...props} category={2} activity={1} />}
         />
       </Switch>
+      <Footer></Footer>
     </>
   );
 }

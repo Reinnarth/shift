@@ -4,6 +4,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import Calendar from "react-calendar";
 import Button from "react-bootstrap/Button";
 import Spinner from "react-bootstrap/Spinner";
+import { useHistory } from "react-router-dom";
 
 import TimeList from "../TimeList";
 import Api from "../../utils/api";
@@ -19,7 +20,11 @@ export default function Activity() {
   const [currentDate, setCurrentDate] = useState(new Date());
 
   const { category, activity } = useParams();
+  let history = useHistory();
 
+  function handleClick() {
+    history.push("/");
+  }
   const titleName = {
     gym: "Спортивный комплекс",
     spa: "SPA-комплекс",
@@ -57,7 +62,7 @@ export default function Activity() {
   return (
     <>
       <Header svgName={category} titleName={titleName[category]}></Header>
-      <Container>
+      <Container marginLeft="100px" marginRight="100px">
         <Row>
           <Col md={6}>
             <Calendar
@@ -68,6 +73,9 @@ export default function Activity() {
               onClickDay={onClickDay}
               tileDisabled={tileDisabled}
             />
+            <Button style={buttonStyle} variant="primary" onClick={handleClick}>
+          На главную
+        </Button>
           </Col>
 
           <Col md={6}>
@@ -90,3 +98,13 @@ export default function Activity() {
     </>
   );
 }
+const buttonStyle = {
+  marginTop: "50px",
+  backgroundColor: "#FF8251",
+  borderRadius: "15px 15px 15px 15px",
+  width: "350px",
+  border:"none",
+  boxShadow: '0 0 15px rgba(0,0,0,0.5)',
+  marginRight:"auto",
+  marginLeft:"auto"
+};

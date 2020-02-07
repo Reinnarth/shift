@@ -14,8 +14,9 @@ function ActivityList(props) {
     fontFamily: "Montserrat",
     fontStyle: "normal",
     fontWeight: "500",
-    fontSize: "36px",
-    lineHeight: "44px"
+    fontSize: "34px",
+    lineHeight: "44px",
+    cursor: "pointer"
   };
   const nextPageimage = (
     <svg
@@ -48,14 +49,19 @@ function ActivityList(props) {
   };
 
   const listItems = activityList.map((activity, index) => (
+    <>
+    
     <ListGroup.Item
       style={itemStyle}
       key={index}
       onClick={() => goTo(activity.eng)}
     >
       {activity.rus}
+      
       {nextPageimage}
+      
     </ListGroup.Item>
+    </>
   ));
   return (
     <>

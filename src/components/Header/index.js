@@ -12,6 +12,7 @@ import pool from "../../assets/Header/PoolCategory.svg";
 import spa from "../../assets/Header/SpaCategory.svg";
 import bar from "../../assets/Header/BarCategory.svg";
 import indexLogo from "../../assets/Header/IndexLogo.svg";
+import backImage from "../../assets/Header/BackGround.svg";
 
 const image = {
   gym,
@@ -47,6 +48,7 @@ export default function Header({ svgName, titleName }) {
     textAlign:"center",
     marginTop: "2%",
     marginRight: "40%",
+    cursor: 'pointer'
   }
   const iconStyle={
     marginRight:"30px",
@@ -57,6 +59,13 @@ export default function Header({ svgName, titleName }) {
   const divHeaderStyle = {
 
   }
+  const backStyle={
+position: 'absolute',
+width: '334px',
+height: '163.5px',
+left: '-10px',
+top: '-35px',
+  }
   let history = useHistory();
 
   function handleClick() {
@@ -65,6 +74,7 @@ export default function Header({ svgName, titleName }) {
   if (svgName === "null") {
     return (
       <header style={divHeaderStyle}>
+        <Image style={backStyle} src={backImage}/>
         <Container>
           <Row>
             <Col onClick={handleClick} style={indexHeaderStyle}><Image style={iconStyle} src={indexLogo}/>{titleName}</Col>
