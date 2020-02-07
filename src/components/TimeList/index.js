@@ -85,14 +85,10 @@ export default function TimeList({
         unavailableTime={unavailableTime}
         setUnavailableTime={setUnavailableTime}
       />
-<<<<<<< Updated upstream
       {/* <Button variant="primary" onClick={() => setShow(true)}>
         
       </Button> */}
     </Container>
-=======
-      </Container>
->>>>>>> Stashed changes
   );
   
 }
