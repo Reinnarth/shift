@@ -35,7 +35,7 @@ function ActivityList(props) {
   useEffect(() => {
     const fetchActivityList = async () => {
       const response = await Api.getActivities(name);
-      setActivityList(response);
+      setActivityList(response.data);
       setLoading(false);
     };
 

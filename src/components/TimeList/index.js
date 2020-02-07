@@ -24,77 +24,67 @@ export default function TimeList({
   };
 
   const listItems = timelist.map((time, index) => {
-    console.log(unavailableTime);
-    if (unavailableTime.indexOf(time) !== -1) {
-      return (
-        <OverlayTrigger
-          overlay={<Tooltip id="tooltip-disabled">Время занято</Tooltip>}
-        >
-          <Button key={index} value={time} variant="outline-warning" disabled>
-            {time}
-          </Button>
-        </OverlayTrigger>
-      );
-    } else {
-      return (
-       
-        <Button
-          key={index}
-          value={time}
-          variant="outline-success"
-          onClick={chooseTime}
-        >
-          {time}
-        </Button>
-        
-      );
-    }
+    return (
+      <Col md={6}>
+        <div style={timeButtonWrapper}>
+          {unavailableTime.indexOf(time) !== -1 ? (
+            <Button
+              style={timeButton}
+              key={index}
+              value={time}
+              variant="outline-warning"
+              disabled
+            >
+              {time}
+            </Button>
+          ) : (
+            <Button
+              style={timeButton}
+              key={index}
+              value={time}
+              variant="outline-success"
+              onClick={chooseTime}
+            >
+              {time}
+            </Button>
+          )}
+        </div>
+      </Col>
+    );
+    // if (unavailableTime.indexOf(time) !== -1) {
+
+    //   return (
+    //     <Col md={3}>
+    //       <OverlayTrigger
+    //         overlay={<Tooltip id="tooltip-disabled">Время занято</Tooltip>}
+    //       >
+    //         <Button key={index} value={time} variant="outline-warning" disabled>
+    //           {time}
+    //         </Button>
+    //       </OverlayTrigger>
+    //     </Col>
+    //   );
+    // } else {
+    //   return (
+    //     <Col md={3}>
+    //       <Button
+    //         key={index}
+    //         value={time}
+    //         variant="outline-success"
+    //         onClick={chooseTime}
+    //       >
+    //         {time}
+    //       </Button>
+    //     </Col>
+    //   );
+    // }
   });
 
-
-
   return (
-    <Container>
+    <>
       Выберите время:
-      <Row>
-        <Col md={3}>
-          {listItems}
-          {/* <OverlayTrigger
-            overlay={<Tooltip id="tooltip-disabled">Время занято</Tooltip>}
-          >
-            <Button
-              block
-              disabled
-              style={{ pointerEvents: "none" }}
-              variant="outline-secondary"
-            >
-              9:00
-            </Button>
-          </OverlayTrigger>
-
-          <Button block variant="outline-secondary">
-            11:00
-          </Button> */}
-        </Col>
-        <Col md={3}>
-          {/* <OverlayTrigger
-            overlay={<Tooltip id="tooltip-disabled">Время занято</Tooltip>}
-          >
-            <Button
-              block
-              disabled
-              style={{ pointerEvents: "none" }}
-              variant="outline-secondary"
-            >
-              9:00
-            </Button>
-          </OverlayTrigger>
-
-          <Button block variant="outline-secondary">
-            11:00
-          </Button> */}
-        </Col>
-      </Row>
+      {listItems}
+      {/* <Col md={3}></Col> */}
       <BookingForm
         date={date}
         time={time}
@@ -104,57 +94,17 @@ export default function TimeList({
         unavailableTime={unavailableTime}
         setUnavailableTime={setUnavailableTime}
       />
-      {/* <Button variant="primary" onClick={() => setShow(true)}>
-        
-      </Button> */}
-    </Container>
+    </>
   );
-  // return (
-  //     <div>
-  //         <table className="table table-hover">
-  //             <thead>
-  //                 <tr>
-  //                     <th>Доступное время</th>
-  //                 </tr>
-  //             </thead>
-  //             <tfoot>
-  //                 <tr>
-  //                     <th>Тут будет форма и кнопка</th>
-  //                 </tr>
-  //             </tfoot>
-  //             <tbody>
-  //                 <tr>
-  //                     <td>9:00</td>
-  //                 </tr>
-  //                 <tr>
-  //                     <td>10:00</td>
-  //                 </tr>
-  //                 <tr>
-  //                     <td>11:00</td>
-  //                 </tr>
-  //                 <tr>
-  //                     <td>12:00</td>
-  //                 </tr>
-  //                 <tr>
-  //                     <td>13:00</td>
-  //                 </tr>
-  //                 <tr>
-  //                     <td>14:00</td>
-  //                 </tr>
-  //                 <tr>
-  //                     <td>15:00</td>
-  //                 </tr>
-  //                 <tr>
-  //                     <td>16:00</td>
-  //                 </tr>
-  //                 <tr>
-  //                     <td>17:00</td>
-  //                 </tr>
-  //                 <tr>
-  //                     <td>18:00</td>
-  //                 </tr>
-  //             </tbody>
-  //         </table>
-  //     </div>
-  // )
 }
+
+const timeButtonWrapper = {
+  display: "flex",
+  align: "right",
+  flexWrap: "wrap",
+  justifyContent: "space-evenly"
+};
+
+const timeButton = {
+ 
+};
