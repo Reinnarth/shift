@@ -39,7 +39,7 @@ export default function Activity() {
         activity,
         Date.parse(date.toDateString())
       );
-        console.log(response.data)
+        
       setUnavailableTime(response.data);
       setLoading(false);
     };
@@ -62,9 +62,10 @@ export default function Activity() {
   return (
     <>
       <Header svgName={category} titleName={titleName[category]}></Header>
-      <Container marginLeft="100px" marginRight="100px">
+      <Container >
         <Row>
-          <Col md={6}>
+          <Col md={1}></Col>
+          <Col md={5}>
             <Calendar
               locale="ru"
               value={date}
@@ -72,17 +73,18 @@ export default function Activity() {
               maxDate={new Date(Date.now() + 12096e5)}
               onClickDay={onClickDay}
               tileDisabled={tileDisabled}
+              
             />
             <Button style={buttonStyle} variant="primary" onClick={handleClick}>
           На главную
         </Button>
           </Col>
-
-          <Col md={6}>
+          <Col md={1}></Col>
+          <Col md={5}>
             {loading && (
-              <>
+              <div  style={spinnerContainer}>
                 <Spinner animation="border" />
-              </>
+              </div>
             )}
             {!loading && (
               <TimeList
@@ -104,7 +106,13 @@ const buttonStyle = {
   borderRadius: "15px 15px 15px 15px",
   width: "350px",
   border:"none",
-  boxShadow: '0 0 15px rgba(0,0,0,0.5)',
+  boxShadow: '0 2px 5px rgba(0,0,0,0.25)',
   marginRight:"auto",
   marginLeft:"auto"
+};
+
+const spinnerContainer = {
+  display: "flex",
+  justifyContent: "center",
+  paddingTop: "100px"
 };

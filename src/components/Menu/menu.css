@@ -1,0 +1,12 @@
+.colstyles {
+	margin-left: 10%;
+  margin-right: 10%;
+  transition: transform .2s;
+  cursor: pointer;
+}
+.colstyles:hover{
+    transform: scale(1.07);
+}
+.colstyles:hover::after{
+    transition: transform 1.5s;
+}

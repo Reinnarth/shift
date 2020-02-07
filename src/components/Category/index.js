@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useHistory } from "react-router-dom";
 import ActivityList from "../Activity/ActivityList";
 import Container from "react-bootstrap/Container";
@@ -27,9 +27,7 @@ export default function Category({name,titleName}) {
   function handleClick() {
     history.push("/");
   }
-const containerStyle={
-  marginTop:"40px"
-}
+
   return (
     <>
     <Header svgName={name} titleName={titleName}> </Header>
@@ -42,7 +40,7 @@ const containerStyle={
         </Button>
         </Col>
         <Col md={6}>
-        <div style={itemStyle}  display="inline-block">Направления:</div>
+        <div style={itemStyle}  display="inline-block">Направления</div>
           <ActivityList name={name}></ActivityList>
         </Col>              
       </Row>
@@ -50,21 +48,26 @@ const containerStyle={
     </>
   );
 }
+const containerStyle={
+  marginTop:"40px"
+}
 const buttonStyle = {
   marginTop: "50px",
   backgroundColor: "#FF8251",
   borderRadius: "15px 15px 15px 15px",
   width: "506px",
   border:"none",
-  boxShadow: '0 0 15px rgba(0,0,0,0.5)',
+  boxShadow: '0 2px 5px rgba(0,0,0,0.25)',
   marginRight:"auto",
   marginLeft:"auto"
 };
+
 const itemStyle = {
   fontFamily: "Montserrat",
   fontStyle: "normal",
   fontWeight: "500",
-  fontSize: "34px",
+  fontSize: "44px",
   lineHeight: "44px",
-  textAlign:'center'
+  textAlign:'center',
+  marginBottom: "20px"
 };

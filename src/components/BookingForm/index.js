@@ -11,6 +11,7 @@ const message = {
   success: "Успех",
   error: "Неудача"
 };
+
 export default function BookingForm({
   date,
   time,
@@ -20,13 +21,16 @@ export default function BookingForm({
   unavailableTime,
   setUnavailableTime
 }) {
+
   const [showSuccess, setShowSuccess] = useState(false);
   const [success, setSuccess] = useState("error");
+
   const onSubmit = async ({ studentDocument }) => {
     const dateTime = {
       date: parseInt(Date.parse(date.toDateString())),
       time: time
     };
+
     await Api.postTime(category, dateTime, parseInt(studentDocument, 10))
       .then(response => {
         if (response.data.status.code !== "ERROR") {
@@ -72,7 +76,7 @@ export default function BookingForm({
               <Container>
                 <Row>
                   <label style={textStyle}>
-                    Дата:
+                    Дата:{" "} 
                     {date.toLocaleDateString("ru", {
                       weekday: "long",
                       year: "numeric",
@@ -126,7 +130,7 @@ export default function BookingForm({
       <Modal
         show={showSuccess}
         onHide={() => setShowSuccess(false)}
-        dialogClassName="modal-40w"
+        dialogClassName="modal-20w"
         aria-labelledby="example-custom-modal-styling-title"
         centered={true}
       >
@@ -148,6 +152,7 @@ export default function BookingForm({
     </>
   );
 }
+
 const buttonSubmitStyle = {
   backgroundColor: "#FF8251",
   border: "none",

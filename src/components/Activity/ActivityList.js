@@ -10,15 +10,7 @@ function ActivityList(props) {
   const { name } = props;
   const [loading, setLoading] = useState(true);
   const [activityList, setActivityList] = useState([]);
-  const itemStyle = {
-    fontFamily: "Montserrat",
-    fontColor:"#C4C4C4",
-    fontStyle: "normal",
-    fontWeight: "500",
-    fontSize: "34px",
-    lineHeight: "44px",
-    cursor: "pointer"
-  };
+
   const nextPageimage = (
     <svg
       width="44"
@@ -50,30 +42,41 @@ function ActivityList(props) {
   };
 
   const listItems = activityList.map((activity, index) => (
-    <>
-    
     <ListGroup.Item
       style={itemStyle}
       key={index}
       onClick={() => goTo(activity.eng)}
     >
       {activity.rus}
-      
+
       {nextPageimage}
-      
     </ListGroup.Item>
-    </>
   ));
   return (
     <>
       {loading && (
-        <>
+        <div style={spinnerContainer}>
           <Spinner animation="border" />
-        </>
+        </div>
       )}
       {!loading && <ListGroup variant="flush">{listItems}</ListGroup>}
     </>
   );
 }
 
+const itemStyle = {
+  fontFamily: "Montserrat",
+  fontColor: "#C4C4C4",
+  fontStyle: "normal",
+  fontWeight: "500",
+  fontSize: "34px",
+  lineHeight: "44px",
+  cursor: "pointer"
+};
+
+const spinnerContainer = {
+  display: "flex",
+  justifyContent: "center",
+  paddingTop: "100px"
+};
 export default withRouter(ActivityList);

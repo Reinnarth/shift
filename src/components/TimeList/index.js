@@ -1,20 +1,17 @@
 import React, { useState } from "react";
-import ListGroup from "react-bootstrap/ListGroup";
 import { timelist } from "../../utils/data";
-import { Container, Row, Col } from "react-bootstrap";
-import Overlay from "react-bootstrap/Overlay";
-import OverlayTrigger from "react-bootstrap/OverlayTrigger";
-import Tooltip from "react-bootstrap/Tooltip";
+import { Col } from "react-bootstrap";
+
 import Button from "react-bootstrap/Button";
-import { useHistory } from "react-router-dom";
 
 import BookingForm from "../BookingForm";
-const textStyle={
+
+const textStyle = {
   fontFamily: "Montserrat",
   fontStyle: "normal",
   fontWeight: "500",
-  fontSize: "34px",
-}
+  fontSize: "34px"
+};
 export default function TimeList({
   date,
   unavailableTime,
@@ -28,14 +25,14 @@ export default function TimeList({
     setTime(e.target.value);
     setShow(true);
   };
-  let history = useHistory();
+  // let history = useHistory();
 
-  function handleClick() {
-    history.push("/");
-  }
+  // function handleClick() {
+  //   history.push("/");
+  // }
   const listItems = timelist.map((time, index) => {
     return (
-      <Col md={6}>
+      <Col key={index} md={6}>
         <div style={timeButtonWrapper}>
           {unavailableTime.indexOf(time) !== -1 ? (
             <Button
@@ -68,7 +65,7 @@ export default function TimeList({
     <>
       <div style={nameStyle}>Выберите время:</div>
       {listItems}
-      {/* <Col md={3}></Col> */}
+
       <BookingForm
         date={date}
         time={time}
@@ -96,5 +93,7 @@ const timeButton = {
 };
 
 const nameStyle = {
+  fontFamily: "Montserrat",
+  fontStyle: "normal",
   marginLeft: "3%"
 };
