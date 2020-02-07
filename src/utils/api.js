@@ -4,11 +4,11 @@ const baseURL = "http://51.83.145.18:8080/api/v1";
 // const hehe=`${baseURL}/${category}/${activity}`
 class Api {
   async getActivities(category) {
-    let junk = [];
+    let activities = [];
     await axios
       .get(`${baseURL}/${category}`)
       .then(function(response) {
-        junk = response.data;
+        activities = response.data;
         console.log(response);
       })
       .catch(function(error) {
@@ -16,39 +16,32 @@ class Api {
         console.log(error);
       });
 
-    return junk;
+    return activities;
   }
 
   async getTime(category, activity, date) {
-    // try {
-    //   // const response = await axios.get(`${baseURL}/${category}/${activity}/${date}`);
-    //   const response = {
-    //     data: { dateTime: { date: 1580835600000, time: "18:00" } }
-    //   };
-    //   return response;
-    // } catch (error) {
-    //   console.log(error);
-    // }
+    let time = []
     await axios
       .get(`${baseURL}/services/${activity}/${date}`, {
         mode: "no-cors",
         headers: {
-          "Access-COntrol-Allow-Origins": "*",
+          "Access-Control-Allow-Origins": "*",
           Accept: "application/json",
           "Content-Type": "application/json"
         }
       })
       .then(function(response) {
-        //junk = response.data
+        time = response.data
         console.log(response);
       })
       .catch(function(error) {
         // handle error
         console.log(error);
       });
+      return time
   }
 
-  async postTime(category, activity, dateTime) {
+  async postTime(category,  dateTime, studentDocument) {
     await axios
       .post(`${baseURL}/add`, {
         mode: "no-cors",
@@ -57,12 +50,9 @@ class Api {
           Accept: "application/json",
           "Content-Type": "application/json"
         },
-        service: "gym",
-        dateTime: {
-          date: 1555555555,
-          time: "18:00"
-        },
-        studentDocument: 515313513551
+        service: category,
+        dateTime: dateTime,
+        studentDocument: studentDocument
       })
       .then(response => {
         console.log(response);
