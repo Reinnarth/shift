@@ -45,10 +45,15 @@ lineHeight: '44px',
       
     </ListGroup.Item>
   ));
-  return loading ? (
-    <Spinner></Spinner>
-  ) : (
-    <ListGroup variant="flush">{listItems}</ListGroup>
+  return (
+    <>
+      {loading && (
+        <>
+          <Spinner animation="border" />
+        </>
+      )}
+      {!loading && <ListGroup variant="flush">{listItems}</ListGroup>}
+    </>
   );
 }
 

@@ -7,72 +7,56 @@ import pictureGym from "../../assets/Menu/GymMenu.svg";
 import picturePool from "../../assets/Menu/PoolMenu.svg";
 import pictureSpa from "../../assets/Menu/SpaMenu.svg";
 import pictureLounge from "../../assets/Menu/LoungeMenu.svg";
-import pictureRectangle from "../../assets/Menu/Rectangle.svg"
+import pictureRectangle from "../../assets/Menu/Rectangle.svg";
 import Button from "react-bootstrap/Button";
 import Header from "../Header";
 
+import BookingForm from "../BookingForm"
+
 class Menu extends Component {
-  changeBackground(e) {
-
-
-  }
+  changeBackground(e) {}
   render() {
-    const buttonStyle = {
-      marginTop: "50px",
-      width: "100%",
-      backgroundColor: "#FF8251",
-      borderRadius: "15px 15px 15px 15px",
-      height:"125%",
-      width:"125%"
-    }
-    const cardStyle =
-    {
-      marginTop: "30%",
-      borderRadius: "15px 15px 15px 15px",
-      height:"125%",
-      width:"125%"
-
-    }
-    const colStyle =
-    {
-      marginLeft: "10%",
-      marginRight: "10%",
-    }
     const cardList = cards.map((card, index) => {
       return (
+<<<<<<< HEAD
         <>
         
         <Col key={index} xs={12} md={3} >
+=======
+        
+        <Col key={index} xs={12} md={3}>
+>>>>>>> form
           <Link to={card.route}>
-          <div style={colStyle}>
-            <Card 
-              onMouseEnter={this.changeBackground}
-              onMouseLeave={this.changeBackground}
-              style={cardStyle}
-              className="bg-dark text-white"
-              border="light"
-              width={"265px"}
-              bg="white"
-            >
-
-              <Card.Img
-                src={card.img}
-                alt={card.title}
-              />
-              <Card.ImgOverlay>
-                <Card.Title>
-                  {/* {card.title} */}
-                </Card.Title>
-                <Card.Text>
-                  {/* {card.text} */}
-                </Card.Text>
-              </Card.ImgOverlay>
-            </Card>
-            <Button style={buttonStyle} variant="info" size="lg" >
-              <svg width="44" height="36" viewBox="0 0 44 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M19.8057 0L16 3.1725L28.3617 13.5L16 23.8275L19.8057 27L36 13.5L19.8057 0Z" fill="white" />
-              </svg>
-            </Button>
+            <div style={colStyle}>
+              <Card
+                onMouseEnter={this.changeBackground}
+                onMouseLeave={this.changeBackground}
+                style={cardStyle}
+                className="bg-dark text-white"
+                border="light"
+                width={"265px"}
+                bg="white"
+              >
+                <Card.Img src={card.img} alt={card.title} />
+                <Card.ImgOverlay>
+                  <Card.Title>{/* {card.title} */}</Card.Title>
+                  <Card.Text>{/* {card.text} */}</Card.Text>
+                </Card.ImgOverlay>
+              </Card>
+              <Button style={buttonStyle} variant="info" size="lg">
+                <svg
+                  width="44"
+                  height="36"
+                  viewBox="0 0 44 36"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M19.8057 0L16 3.1725L28.3617 13.5L16 23.8275L19.8057 27L36 13.5L19.8057 0Z"
+                    fill="white"
+                  />
+                </svg>
+              </Button>
             </div>
           </Link>
         </Col>
@@ -83,6 +67,7 @@ class Menu extends Component {
       <>
       <Header svgName="null" titleName="Pleasureland"> </Header>
         <Container>
+          <BookingForm></BookingForm>
           <Row>{cardList}</Row>
         </Container>
       </>
@@ -120,4 +105,22 @@ const cards = [
     route: routes.lounge
   }
 ];
+
+const buttonStyle = {
+  marginTop: "50px",
+  backgroundColor: "#FF8251",
+  borderRadius: "15px 15px 15px 15px",
+  height: "125%",
+  width: "125%"
+};
+const cardStyle = {
+  marginTop: "30%",
+  borderRadius: "15px 15px 15px 15px",
+  height: "125%",
+  width: "125%"
+};
+const colStyle = {
+  marginLeft: "10%",
+  marginRight: "10%"
+};
 export default withRouter(Menu);
