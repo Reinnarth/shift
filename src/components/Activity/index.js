@@ -70,7 +70,7 @@ export default function Activity() {
   return (
     <>
       <Header svgName={category} titleName={titleName[category]}></Header>
-      <Container>
+      <Container marginLeft="100px" marginRight="100px">
         <Row>
           <Col>
             <Calendar
