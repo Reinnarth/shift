@@ -55,7 +55,9 @@ function ActivityList(props) {
       onClick={() => goTo(activity.eng)}
     >
       {activity.rus}
+      
       {nextPageimage}
+      
     </ListGroup.Item>
   ));
   return (
