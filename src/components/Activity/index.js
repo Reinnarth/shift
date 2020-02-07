@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 import Calendar from "react-calendar";
-import Modal from "react-bootstrap/Modal";
-import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import Spinner from "react-bootstrap/Spinner";
+
 import TimeList from "../TimeList";
 import Api from "../../utils/api";
 import Header from "../Header";
@@ -15,8 +15,9 @@ import "react-calendar/dist/Calendar.css";
 export default function Activity(props) {
   const [date, setDate] = useState(new Date());
   const [unavailableTime, setUnavailableTime] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [currentDate, setCurrentDate] = useState(new Date());
- 
+
   const { category, activity } = useParams();
   let titleName;
   if (category === "gym") {
@@ -46,14 +47,13 @@ export default function Activity(props) {
       );
       console.log(response);
       setUnavailableTime(response);
-      //setLoading(false);
+      setLoading(false);
     };
 
-
     fetchTime();
-  }, [date]);
+  }, [category, activity, date]);
 
-   const tileDisabled = ({ date, view }) => {
+  const tileDisabled = ({ date, view }) => {
     if (date < new Date(currentDate.toDateString())) {
       return true;
     }
@@ -83,7 +83,15 @@ export default function Activity(props) {
               }}
             />
           </Col>
-          <Col><TimeList date={date}></TimeList></Col>
+
+          <Col>
+            {loading && (
+              <>
+                <Spinner animation="border"/>
+              </>
+            )}
+            {!loading && <TimeList date={date}></TimeList>}
+          </Col>
         </Row>
       </Container>
     </>
