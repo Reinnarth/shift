@@ -9,7 +9,12 @@ import Button from "react-bootstrap/Button";
 import { useHistory } from "react-router-dom";
 
 import BookingForm from "../BookingForm";
-
+const textStyle={
+  fontFamily: "Montserrat",
+  fontStyle: "normal",
+  fontWeight: "500",
+  fontSize: "34px",
+}
 export default function TimeList({
   date,
   unavailableTime,
