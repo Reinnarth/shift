@@ -11,14 +11,14 @@ import pictureRectangle from "../../assets/Menu/Rectangle.svg";
 import Button from "react-bootstrap/Button";
 import Header from "../Header";
 
-import BookingForm from "../BookingForm"
 
 class Menu extends Component {
   changeBackground(e) {}
   render() {
     const cardList = cards.map((card, index) => {
       return (
-        <>
+
+        <>     
         <Col key={index} xs={12} md={3} >
 
           <Link to={card.route}>
@@ -64,7 +64,6 @@ class Menu extends Component {
       <>
       <Header svgName="null" titleName="Pleasureland"> </Header>
         <Container>
-          <BookingForm></BookingForm>
           <Row>{cardList}</Row>
         </Container>
       </>
