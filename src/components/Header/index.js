@@ -11,6 +11,7 @@ import gym from "../../assets/Header/GymCategory.svg";
 import pool from "../../assets/Header/PoolCategory.svg";
 import spa from "../../assets/Header/SpaCategory.svg";
 import bar from "../../assets/Header/BarCategory.svg";
+import indexLogo from "../../assets/Header/IndexLogo.svg";
 
 const image = {
   gym,
@@ -66,7 +67,7 @@ export default function Header({ svgName, titleName }) {
       <header style={divHeaderStyle}>
         <Container>
           <Row>
-            <Col onClick={handleClick} style={indexHeaderStyle}>{titleName}</Col>
+            <Col onClick={handleClick} style={indexHeaderStyle}><Image style={iconStyle} src={indexLogo}/>{titleName}</Col>
           </Row>
         </Container>
         <hr align="center" width="50%" size="2" color="#C4C4C4" />

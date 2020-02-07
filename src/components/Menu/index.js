@@ -45,6 +45,8 @@ class Menu extends Component {
                   viewBox="0 0 44 36"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
+                  justifyContent='center'
+                  alignItems='center'
                 >
                   <path
                     d="M19.8057 0L16 3.1725L28.3617 13.5L16 23.8275L19.8057 27L36 13.5L19.8057 0Z"
@@ -105,7 +107,9 @@ const buttonStyle = {
   backgroundColor: "#FF8251",
   borderRadius: "15px 15px 15px 15px",
   height: "125%",
-  width: "125%"
+  width: "125%",
+  border:"none",
+  boxShadow: '0 0 10px rgba(0,0,0,1)'
 };
 const cardStyle = {
   marginTop: "30%",
