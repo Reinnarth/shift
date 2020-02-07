@@ -8,10 +8,10 @@ import Image from "react-bootstrap/Image";
 import Button from "react-bootstrap/Button";
 import Header from "../Header";
 
-import gym from "../../assets/Menu/GymMenu.svg";
-import pool from "../../assets/Menu/PoolMenu.svg";
-import spa from "../../assets/Menu/SpaMenu.svg";
-import bar from "../../assets/Menu/LoungeMenu.svg";
+import gym from "../../assets/Category/Gym.svg";
+import pool from "../../assets/Category/Pool.svg";
+import spa from "../../assets/Category/Spa.svg";
+import bar from "../../assets/Category/Bar.svg";
 
 const image = {
   gym,
@@ -26,23 +26,37 @@ export default function Category({name,titleName}) {
   function handleClick() {
     history.push("/");
   }
-
+const containerStyle={
+  marginTop:"40px"
+}
   return (
     <>
     <Header svgName={name} titleName={titleName}> </Header>
-    <Container>
+    <Container style={containerStyle}>
       <Row>
         <Col md={6}>
           <Image src={image[name]} />
+          <Button style={buttonStyle} variant="primary" onClick={handleClick}>
+          На главную
+        </Button>
         </Col>
         <Col md={6}>
           <ActivityList name={name}></ActivityList>
+         
         </Col>
-        <Button variant="primary" onClick={handleClick}>
-          На главную
-        </Button>
+        
       </Row>
     </Container>
     </>
   );
 }
+const buttonStyle = {
+  marginTop: "50px",
+  backgroundColor: "#FF8251",
+  borderRadius: "15px 15px 15px 15px",
+  width: "506px",
+  border:"none",
+  boxShadow: '0 0 15px rgba(0,0,0,0.5)',
+  marginRight:"auto",
+  marginLeft:"auto"
+};

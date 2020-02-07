@@ -109,10 +109,10 @@ const buttonStyle = {
   height: "100%",
   width: "100%",
   border:"none",
-  boxShadow: '0 0 10px rgba(0,0,0,1)'
+  boxShadow: '0 0 15px rgba(0,0,0,0.5)'
 };
 const cardStyle = {
-  marginTop: "30%",
+  marginTop: "40px",
   borderRadius: "15px 15px 15px 15px",
   height: "100%",
   width: "100%"
