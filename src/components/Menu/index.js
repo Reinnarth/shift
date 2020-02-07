@@ -54,8 +54,9 @@ class Menu extends Component {
               >
                 <Card.Img src={card.img} alt={card.title} />
                 <Card.ImgOverlay>
-                  <Card.Title>{/* {card.title} */}</Card.Title>
-                  <Card.Text>{/* {card.text} */}</Card.Text>
+                  <Card.Title>{card.title}</Card.Title>
+                  <hr align="center" width="100%" size="3" color="white" />
+                  <Card.Text>{card.text}</Card.Text>
                 </Card.ImgOverlay>
               </Card>
               <Button style={buttonStyle} variant="info" size="lg">
@@ -93,28 +94,28 @@ class Menu extends Component {
 
 const cards = [
   {
-    title: "Спортивный комплекс",
-    text: "Здесь вы сможете заброинровать что-то",
+    title: "Бронирование услуг спортивного комплекса",
+    text: "Спортивный комплекс нашего обжещития предлагает вам залы по занятиям йогой, боксом и смешынным единоборствам, зал с брусьями, также есть тренажерные залы с кардио зоной и для кросс-фита.",
     category: "gym",
     img: pictureGym,
     route: routes.gym
   },
   {
-    title: "Бронирование услуг бассейна",
+    title: "Бронирование услуг аквапарка",
     text: "Sample text",
     category: "pool",
     img: picturePool,
     route: routes.pool
   },
   {
-    title: "Бронирование услуг спа",
+    title: "Бронирование услуг SPA-центра",
     text: "Sample text",
     category: "spa",
     img: pictureSpa,
     route: routes.spa
   },
   {
-    title: "Бронирование услуг lounge зоны",
+    title: "Бронирование услуг lounge-зоны",
     text: "Sample text",
     category: "bar",
     img: pictureLounge,
@@ -129,10 +130,10 @@ const buttonStyle = {
   height: "100%",
   width: "100%",
   border:"none",
-  boxShadow: '0 0 15px rgba(0,0,0,0.5)'
+  boxShadow: '0 0 10px rgba(0,0,0,1)'
 };
 const cardStyle = {
-  marginTop: "40px",
+  marginTop: "30%",
   borderRadius: "15px 15px 15px 15px",
   height: "100%",
   width: "100%"
