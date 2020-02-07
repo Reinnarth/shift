@@ -28,56 +28,41 @@ export default function TimeList({
   function handleClick() {
     history.push("/");
   }
-
   const listItems = timelist.map((time, index) => {
-
-    console.log(unavailableTime);
-    if (unavailableTime.indexOf(time) !== -1) {
-      return (
-        <OverlayTrigger
-          overlay={<Tooltip id="tooltip-disabled">Время занято</Tooltip>}
-        >
-          <Button key={index} value={time} variant="outline-warning" disabled>
-            {time}
-          </Button>
-        </OverlayTrigger>
-      );
-    } else {
-      return (
-       
-        <Button
-          key={index}
-          value={time}
-          variant="outline-success"
-          onClick={chooseTime}
-        >
-          {time}
-        </Button>
-        
-      );
-    }
+    return (
+      <Col md={6}>
+        <div style={timeButtonWrapper}>
+          {unavailableTime.indexOf(time) !== -1 ? (
+            <Button
+              style={timeButton}
+              key={index}
+              value={time}
+              variant="outline-warning"
+              disabled
+            >
+              {time}
+            </Button>
+          ) : (
+            <Button
+              style={timeButton}
+              key={index}
+              value={time}
+              variant="outline-success"
+              onClick={chooseTime}
+            >
+              {time}
+            </Button>
+          )}
+        </div>
+      </Col>
+    );
   });
 
-
-
   return (
-    
-    <Container>
-      
+    <>
       Выберите время:
-      <Row>
-        <Col md={3}>
-          {listItems}
-         
-        </Col>
-        
-        <Col md={3}>
-          
-        </Col>
-        
-      </Row>
-      
-
+      {listItems}
+      {/* <Col md={3}></Col> */}
       <BookingForm
         date={date}
         time={time}
@@ -89,18 +74,24 @@ export default function TimeList({
       />
     </>
   );
-
-
-  
 }
+
+const timeButtonWrapper = {
+  display: "flex",
+  align: "right",
+  flexWrap: "wrap",
+  justifyContent: "space-evenly"
+};
+
+const timeButton = {};
+
 const buttonStyle = {
   marginTop: "50px",
   backgroundColor: "#FF8251",
   borderRadius: "15px 15px 15px 15px",
   width: "50%",
-  border:"none",
-  boxShadow: '0 0 15px rgba(0,0,0,0.5)',
-  marginRight:"auto",
-  marginLeft:"auto"
+  border: "none",
+  boxShadow: "0 0 15px rgba(0,0,0,0.5)",
+  marginRight: "auto",
+  marginLeft: "auto"
 };
-
