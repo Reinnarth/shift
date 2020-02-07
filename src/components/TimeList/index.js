@@ -30,35 +30,28 @@ export default function TimeList({
         <OverlayTrigger
           overlay={<Tooltip id="tooltip-disabled">Время занято</Tooltip>}
         >
-          <Button key={index} value={time} variant="outline-secondary" disabled>
+          <Button key={index} value={time} variant="outline-warning" disabled>
             {time}
           </Button>
         </OverlayTrigger>
       );
     } else {
       return (
-        // <OverlayTrigger
-        //   overlay={<Tooltip id="tooltip-disabled">Время занято</Tooltip>}
-        // >
+       
         <Button
           key={index}
           value={time}
-          variant="outline-secondary"
+          variant="outline-success"
           onClick={chooseTime}
         >
           {time}
         </Button>
-        // </OverlayTrigger>
-        // <ListGroup.Item value={time} key={index} onClick={chooseTime}>
-        //   {time}
-        // </ListGroup.Item>
+        
       );
     }
   });
 
-  // function renderTooltip(props) {
-  //   return <Tooltip {...props}>Simple tooltip</Tooltip>;
-  // }
+
 
   return (
     <Container>

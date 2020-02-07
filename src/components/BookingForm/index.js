@@ -27,48 +27,51 @@ export default function BookingForm({
   return (
     <>
       <Modal
-        show={show}
+        show={+show}
         onHide={() => setShow(false)}
         dialogClassName="modal-40w"
         aria-labelledby="example-custom-modal-styling-title"
         centered={true}
       >
         <Modal.Header closeButton>
-          <Modal.Title id="example-custom-modal-styling-title">s</Modal.Title>
+          <Modal.Title id="example-custom-modal-styling-title">Подтвердите бронирование</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Formik
             initialValues={{ studentDocument: "" }}
             validationSchema={Yup.object({
               studentDocument: Yup.string()
-                .matches(/^[0-9]*$/, "Only numbers")
-                .length(10, "Must be 10 characters")
-                .required("Required")
+                .matches(/^[0-9]*$/, "Только числа")
+                .length(10, "Должно быть точно 10 символов")
+                .required("Это обязательное поле")
             })}
             onSubmit={onSubmit}
           >
             <Form autoComplete="off">
               <Container>
                 <Row>
-                  <label>Дата: {date.toDateString()} </label>
+                  <label style={textStyle}>Дата: {date.toDateString()} </label>
                 </Row>
                 <Row>
-                  <label>Время: {time} </label>
+                  <label style={textStyle}>Время: {time} </label>
                 </Row>
                 <Row>
-                  <label>Номер ID: </label>
-                  <Field name="studentDocument" type="text" />
-                  <ErrorMessage name="studentDocument" />
+                  <label style={textStyle}>Номер твоего студенческого: </label>
+                </Row>
+                 
+                  <Row>
+                  <Field style ={idFormStyle} name="studentDocument" type="text" />
+                  <div style={errorStyle} ><ErrorMessage name="studentDocument" /></div>
                 </Row>
                 <Row>
                   <Col>
-                    <Button variant="primary" type="submit">
-                      Submit
+                    <Button  style={buttonSubmitStyle} variant="primary" type="submit">
+                      Забронировать
                     </Button>
                   </Col>
                   <Col>
-                    <Button variant="primary" onClick={() => setShow(false)}>
-                      Back
+                    <Button style={buttonCancelStyle} variant="light" onClick={() => setShow(false)}>
+                     Отмена
                     </Button>
                   </Col>
                 </Row>
@@ -80,3 +83,27 @@ export default function BookingForm({
     </>
   );
 }
+const buttonSubmitStyle={
+  backgroundColor: "#FF8251",
+  border:"none",
+  marginTop:"10px",
+}
+  const buttonCancelStyle={
+  border:"none",
+  marginTop:"10px",
+  marginLeft:"50px"
+  }
+  const idFormStyle={
+backgroundColor:"C4C4C4",
+marginRight:"20px"
+  }
+  const errorStyle={
+    color:"#dc3545"
+  }
+  const textStyle={
+    fontFamily: 'Montserrat',
+fontStyle: 'normal',
+fontWeight: 'normal',
+fontSize: '24px',
+lineHeight: '29px',
+  }
