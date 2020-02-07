@@ -13,14 +13,7 @@ import pool from "../../assets/Category/Pool.svg";
 import spa from "../../assets/Category/Spa.svg";
 import bar from "../../assets/Category/Bar.svg";
 
-const buttonStyle = {
-  marginTop: "30px",
-  width: "100%",
-  backgroundColor: "#FF8251",
-  borderRadius: "15px 15px 15px 15px",
-  height:"125%",
-  width:"265px"
-}
+
 const image = {
   gym,
   pool,
@@ -50,11 +43,7 @@ const containerStyle={
         </Col>
         <Col md={6}>
           <ActivityList name={name}></ActivityList>
-         
-        </Col>
-        <Button onClick={handleClick} style={buttonStyle}>
-          На главную
-        </Button>
+        </Col>              
       </Row>
     </Container>
     </>
