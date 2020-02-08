@@ -34,13 +34,15 @@ export default function Activity() {
 
   useEffect(() => {
     const fetchTime = async () => {
-      const response = await Api.getTime(
+      await Api.getTime(
         category,
         activity,
         Date.parse(date.toDateString())
-      );
-        
-      setUnavailableTime(response.data);
+      ).then(response => {
+        console.log(response.data);
+        setUnavailableTime(response.data);
+      });
+
       setLoading(false);
     };
 
@@ -53,8 +55,6 @@ export default function Activity() {
     }
   };
 
-  //console.log(Date.parse(date.toDateString()));
-
   const onClickDay = date => {
     setDate(date);
   };
@@ -62,7 +62,7 @@ export default function Activity() {
   return (
     <>
       <Header svgName={category} titleName={titleName[category]}></Header>
-      <Container >
+      <Container>
         <Row>
           <Col md={1}></Col>
           <Col md={5}>
@@ -73,16 +73,15 @@ export default function Activity() {
               maxDate={new Date(Date.now() + 12096e5)}
               onClickDay={onClickDay}
               tileDisabled={tileDisabled}
-              
             />
             <Button style={buttonStyle} variant="primary" onClick={handleClick}>
-          На главную
-        </Button>
+              На главную
+            </Button>
           </Col>
           <Col md={1}></Col>
           <Col md={5}>
             {loading && (
-              <div  style={spinnerContainer}>
+              <div style={spinnerContainer}>
                 <Spinner animation="border" />
               </div>
             )}
@@ -105,10 +104,10 @@ const buttonStyle = {
   backgroundColor: "#FF8251",
   borderRadius: "15px 15px 15px 15px",
   width: "350px",
-  border:"none",
-  boxShadow: '0 2px 5px rgba(0,0,0,0.25)',
-  marginRight:"auto",
-  marginLeft:"auto"
+  border: "none",
+  boxShadow: "0 2px 5px rgba(0,0,0,0.25)",
+  marginRight: "auto",
+  marginLeft: "auto"
 };
 
 const spinnerContainer = {

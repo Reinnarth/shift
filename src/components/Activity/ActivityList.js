@@ -8,6 +8,7 @@ import Api from "../../utils/api";
 //сюда передаем подраздел для формирования списка
 function ActivityList(props) {
   const { name } = props;
+  const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
   const [activityList, setActivityList] = useState([]);
 
@@ -28,8 +29,13 @@ function ActivityList(props) {
 
   useEffect(() => {
     const fetchActivityList = async () => {
-      const response = await Api.getActivities(name);
-      setActivityList(response.data);
+      await Api.getActivities(name)
+        .then(response => {
+          setActivityList(response.data);
+        })
+        .catch(error => {
+          setError(true);
+        });
       setLoading(false);
     };
 
@@ -59,7 +65,7 @@ function ActivityList(props) {
           <Spinner animation="border" />
         </div>
       )}
-      {!loading && <ListGroup variant="flush">{listItems}</ListGroup>}
+      {!loading && !error && <ListGroup variant="flush">{listItems}</ListGroup>}
     </>
   );
 }

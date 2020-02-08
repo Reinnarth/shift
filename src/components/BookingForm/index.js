@@ -8,7 +8,7 @@ import * as Yup from "yup";
 import Api from "../../utils/api";
 
 const message = {
-  success: "Успешно забронированно",
+  success: "Успешно забронировано",
   error: "Неудалось забронировать"
 };
 
@@ -153,11 +153,7 @@ const buttonSubmitStyle = {
   border: "none",
   marginTop: "10px"
 };
-const buttonCancelStyle = {
-  border: "none",
-  marginTop: "10px",
-  marginLeft: "50px"
-};
+
 const idFormStyle = {
   width: "100%",
   backgroundColor: "C4C4C4"

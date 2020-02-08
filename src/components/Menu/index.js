@@ -1,12 +1,6 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
-import {
-  Container,
-  Row,
-  Col,
-  Card,
-  Popover,
-} from "react-bootstrap";
+import { Container, Row, Col, Card, Popover } from "react-bootstrap";
 // import Card from "react-bootstrap/Card";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import * as routes from "../Routes/constants";
@@ -16,7 +10,7 @@ import pictureSpa from "../../assets/Menu/SpaMenu.svg";
 import pictureLounge from "../../assets/Menu/LoungeMenu.svg";
 import Header from "../Header";
 
-import "./menu.css"
+import "./menu.css";
 
 class Menu extends Component {
   render() {
@@ -31,8 +25,8 @@ class Menu extends Component {
                 delay={60}
                 overlay={
                   <Popover
-                  outOfBoundaries={false}
-                    style={{ marginLeft: "-80px", width: 240}}
+                    outOfBoundaries={false}
+                    style={{ marginLeft: "-20px", width: 240 }}
                     id={`popover-positioned-right`}
                   >
                     <Popover.Title as="h3">{card.title}</Popover.Title>
@@ -41,15 +35,12 @@ class Menu extends Component {
                 }
               >
                 <Card
-                  style={cardStyle}
-                  className="bg-dark text-white"
+                  className="bg-dark text-white cardstyle"
                   border="light"
                   width={"265px"}
                   bg="white"
                 >
                   <Card.Img src={card.img} alt={card.title} />
-                  <Card.Title>{/* {card.title} */}</Card.Title>
-                  <Card.Text>{/* {card.text} */}</Card.Text>
                 </Card>
               </OverlayTrigger>
             </div>
@@ -98,17 +89,5 @@ const cards = [
     route: routes.lounge
   }
 ];
-
-const cardStyle = {
-  marginTop: "40px",
-  borderRadius: "15px 15px 15px 15px",
-  height: "110%",
-  width: "110%",
-  transition: "transform .2s",
-  ":hover": {
-    transform: "scale(1.5)"
-  }
-};
-
 
 export default withRouter(Menu);
